@@ -1,0 +1,24 @@
+<h1><%= @piece.name %></h1>
+
+<ul>
+  <li><%= @piece.description %></li>
+  <li><%= @piece.price_per_day %></li>
+</ul>
+
+<p>Transactions : </p>
+
+<% @piece.transactions.each do |transaction|%>
+  <li><%= transaction.start_date %></li>
+  <li><%= transaction.end_date %></li>
+<% end %>
+
+<% if current_user.id == @piece.user_id %>
+  <%= link_to "Add another piece", new_piece_path %>
+  <%= link_to "See my closet", profile_path %>
+  <%= link_to "Delete this piece", piece_path(@piece), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+<% else%>
+  <%= link_to "Book this piece", new_piece_transaction_path(@piece) %>
+<% end %>

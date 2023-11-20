@@ -1,0 +1,10 @@
+<h1>Your booking is soon confirmed</h1>
+
+<%= simple_form_for([@piece, @transaction]) do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
+
+
+<%# [@list, @bookmark] %>
