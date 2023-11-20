@@ -1,0 +1,8 @@
+<h1>For rent</h1>
+
+<ul>
+  <% @pieces.each do |piece| %>
+    <li><%= link_to piece.name, piece_path(piece) %></li>
+  <% end %>
+</ul>
+<%= link_to "Add a piece", new_piece_path %>
