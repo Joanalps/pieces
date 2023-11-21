@@ -9,6 +9,10 @@ class Piece < ApplicationRecord
   TAG = ['Casual', 'Wedding', 'Cocktail', 'Business', 'Party', 'Everyday chic']
   DELIVERY_MODE = ['Pick up', 'Delivery']
 
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :description, presence: true
+  validates :price_per_day, presence: true
   validates :brand, inclusion: { in: BRAND }
   validates :size, inclusion: { in: SIZE }
   validates :category, inclusion: { in: CATEGORY }
