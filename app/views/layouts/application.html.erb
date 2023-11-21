@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -47,7 +49,11 @@
     </div>
   </div>
     </div>
-
+    <div id="container">
+      <input type="text" id="search">
+      <ul id="results">
+      </ul>
+    </div>
     <div>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
@@ -55,5 +61,6 @@
     <div class="container mt-4">
       <%= yield %>
     </div>
+    <script src="app/javascript/index.js"></script>
   </body>
 </html>
