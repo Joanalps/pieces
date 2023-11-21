@@ -6,3 +6,6 @@
   <% end %>
 </ul>
 <%= link_to "Add a piece", new_piece_path %>
+
+
+<%= link_to 'sign out', destroy_user_session_path, data: { turbo_method: :delete } %>

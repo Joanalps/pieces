@@ -8,14 +8,15 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.piece = @piece
-    @transaction.save
-    redirect_to piece_path(@piece)
+    @transaction.user = current_user
+    @transaction.total_price = (@piece.price_per_day * (@transaction.end_date - @transaction.start_date))
+    @transaction.status = "pending"
+    if @transaction.save
+      redirect_to piece_path(@piece)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
-
-  # def total_price
-  #   daily_price = @piece.price_per_day
-  #   number_of_days = [:start_date - :end_date]
-  # end
 
   private
 

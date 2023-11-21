@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :transactions, only: %i[new create]
   end
   resources :transactions, only: %i[destroy edit update accept reject]
-  get "/pieces", to: "pieces#index", as: :profile
+  get "/profile", to: "pages#profile", as: :profile
 end
