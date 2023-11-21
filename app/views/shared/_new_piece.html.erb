@@ -1,0 +1,20 @@
+<div class="modal fade" id="modalNewPiece" tabindex="-1" aria-labelledby="modalNewPieceLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalNewPieceLabel">Add your new piece</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <%= simple_form_for(Piece.new) do |f| %>
+        <div class="modal-body">
+          <%= render "pieces/form", f: f %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Create', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
