@@ -5,9 +5,9 @@
         <% end %>
 
         <div>
-      <input type="text" id="search">
-      <ul id="results" hidden>
-      </ul>
+          <input type="text" id="search">
+          <ul id="results" hidden>
+          </ul>
     </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,13 +17,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <%if user_signed_in? %>
+            <li class="nav-item active">
+              <div class="nav-link" data-bs-toggle="modal" data-bs-target="#modalNewPiece" style="cursor: pointer">
+                  Add a new piece to rent
+              </div>
+            </li>
             <li class="nav-item dropdown">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Profile", profile_path, class: "dropdown-item" %>
                 <%#= link_to "Add a piece to rent", new_piece_path, class: "dropdown-item" %>
                 <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalNewPiece" style="cursor: pointer">
-                  Add a new piece
+                  Add a new piece to rent
                 </div>
                 <%= link_to "Sign out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
