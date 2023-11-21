@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :pieces, dependent: :destroy
   has_many :transactions
-  has_many :transactions, through: :pieces
+  # has_many :transactions, through: :pieces
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
