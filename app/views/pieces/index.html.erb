@@ -6,12 +6,32 @@
   <% end %>
 </ul>
 
-<div data-controller="toggle" class="mt-5">
+<div data-controller="toggle" class="mt-5 d-none">
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new piece</button>
   <div data-toggle-target="togglableElement" class="d-none">
-    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new piece</button>
     <%= render "form", piece: @piece %>
   </div>
 </div>
 
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add a new piece
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add your new piece</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "form", piece: @piece %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
