@@ -11,6 +11,7 @@
 <% @piece.transactions.each do |transaction|%>
   <li><%= transaction.start_date %></li>
   <li><%= transaction.end_date %></li>
+  <li><%= transaction.total_price%>€</li>
 <% end %>
 
 <% if current_user.id == @piece.user_id %>
