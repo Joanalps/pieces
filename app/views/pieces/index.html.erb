@@ -9,7 +9,9 @@
 <div data-controller="toggle" class="mt-5 d-none">
   <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new piece</button>
   <div data-toggle-target="togglableElement" class="d-none">
-    <%= render "form", piece: @piece %>
+    <%= simple_form_for(@piece) do |f| %>
+      <%= render "form", f: f %>
+    <% end %>
   </div>
 </div>
 
@@ -24,12 +26,16 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add your new piece</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <%= render "form", piece: @piece %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+
+      <%= simple_form_for(@piece) do |f| %>
+        <div class="modal-body">
+          <%= render "form", f: f %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Create', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
