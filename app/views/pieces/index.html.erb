@@ -1,11 +1,22 @@
-<h1>For rent</h1>
 
-<ul>
-  <% @pieces.each do |piece| %>
-    <li><%= link_to piece.name, piece_path(piece) %></li>
-  <% end %>
-</ul>
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <% @pieces.each do |piece| %>
+    <div class="col-md-3 mb-4">
+    <div class="card-trip justify-content-center">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to piece.name, piece_path(piece) %></h2>
+            <p><%= link_to piece.description, piece_path(piece) %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%=piece.price_per_day%> €</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to "Add a piece", new_piece_path %>
-
-
-<%= link_to 'sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
