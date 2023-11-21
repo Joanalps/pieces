@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # root to: "pages#home"
 
   root to: "pieces#index"
-  resources :pieces, except: :index do
+  resources :pieces do
     resources :transactions, only: %i[new create]
   end
   resources :transactions, only: %i[destroy edit update accept reject]
