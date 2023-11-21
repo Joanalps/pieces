@@ -3,6 +3,7 @@
 <ul>
   <li><%= @piece.description %></li>
   <li><%= @piece.price_per_day %></li>
+  <li><%= @piece.user.email %></li>
 </ul>
 
 <p>Transactions : </p>
@@ -22,3 +23,6 @@
 <% else%>
   <%= link_to "Book this piece", new_piece_transaction_path(@piece) %>
 <% end %>
+
+
+<%= link_to 'sign out', destroy_user_session_path, data: { turbo_method: :delete } %>

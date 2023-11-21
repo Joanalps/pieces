@@ -12,8 +12,11 @@ class PiecesController < ApplicationController
   def create
     @piece = Piece.new(piece_params)
     @piece.user = current_user
-    @piece.save
-    redirect_to piece_path(@piece)
+    if @piece.save
+      redirect_to piece_path(@piece)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
