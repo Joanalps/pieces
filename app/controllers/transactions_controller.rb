@@ -11,8 +11,11 @@ class TransactionsController < ApplicationController
     @transaction.user = current_user
     @transaction.total_price = (@piece.price_per_day * (@transaction.end_date - @transaction.start_date))
     @transaction.status = "pending"
-    @transaction.save!
-    redirect_to piece_path(@piece)
+    if @transaction.save
+      redirect_to piece_path(@piece)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
