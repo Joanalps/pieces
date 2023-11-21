@@ -9,7 +9,11 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.piece = @piece
     @transaction.user = current_user
-    @transaction.total_price = (@piece.price_per_day * (@transaction.end_date - @transaction.start_date))
+    if @transaction.start_date == @transaction.end_date
+      @transaction.total_price = @piece.price_per_day
+    else
+      @transaction.total_price = (@piece.price_per_day * (@transaction.end_date - @transaction.start_date))
+    end
     @transaction.status = "pending"
     if @transaction.save
       redirect_to piece_path(@piece)
