@@ -1,0 +1,11 @@
+<%= f.input :name %>
+<%= f.input :address %>
+<%= f.input :category, as: :select, collection: Piece::CATEGORY %>
+<%= f.input :size, as: :select, collection: Piece::SIZE %>
+<%= f.input :brand, as: :select, collection: Piece::BRAND %>
+<%= f.input :color, as: :select, collection: Piece::COLOR  %>
+<%= f.input :description %>
+<%= f.input :tag, as: :select, collection: Piece::TAG %>
+<%= f.input :delivery_mode, as: :select, collection: Piece::DELIVERY_MODE %>
+<%= f.input :price_per_day %>
+
