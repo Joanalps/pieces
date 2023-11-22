@@ -38,7 +38,7 @@ class PiecesController < ApplicationController
   def destroy
     @piece = Piece.find(params[:id])
     @piece.destroy
-    redirect_to profile_path, status: :see_other
+    redirect_to pieces_path, status: :see_other
   end
 
 
@@ -49,7 +49,7 @@ class PiecesController < ApplicationController
   # end
 
   def piece_params
-    params.require(:piece).permit(:name, :category, :address, :size, :brand, :color, :description, :tag, :delivery_mode,      :price_per_day)
+    params.require(:piece).permit(:name, :category, :address, :size, :brand, :color, :description, :tag, :delivery_mode, :price_per_day)
   end
 
 end
