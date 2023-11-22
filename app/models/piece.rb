@@ -14,10 +14,16 @@ class Piece < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
   validates :price_per_day, presence: true
+  validates :brand, presence: true
   validates :brand, inclusion: { in: BRAND }
+  validates :size, presence: true
   validates :size, inclusion: { in: SIZE }
+  validates :category, presence: true
   validates :category, inclusion: { in: CATEGORY }
+  validates :color, presence: true
   validates :color, inclusion: { in: COLOR }
+  validates :tag, presence: true
   validates :tag, inclusion: { in: TAG }
+  validates :delivery_mode, presence: true
   validates :delivery_mode, inclusion: { in: DELIVERY_MODE }
 end
