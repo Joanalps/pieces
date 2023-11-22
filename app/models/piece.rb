@@ -26,4 +26,5 @@ class Piece < ApplicationRecord
   validates :tag, inclusion: { in: TAG }
   validates :delivery_mode, presence: true
   validates :delivery_mode, inclusion: { in: DELIVERY_MODE }
+  validates :photos, presence: true
 end
