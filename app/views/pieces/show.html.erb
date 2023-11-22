@@ -4,13 +4,30 @@
 <div>
 
   <h1><%= @piece.name %></h1>
+  <div class="card-trip-contain justify-content-center">
+    <%= cl_image_tag @piece.photos.first.key %>
+      <div class="card-trip-infos text-center mt-3">
+        <div>
+          <h2><%= @piece.name %></h2>
+          <p><%= @piece.description %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= "#{@piece.price_per_day}€" %></h2>
+      </div>
+      </div>
+  <div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Proud Owner</h5>
+      <p class="card-text"><%= " #{@piece.user.first_name}" %></p>
+    </div>
+  </div>
 
-  <ul>
-    <li><%= @piece.description %></li>
-    <li><%= @piece.price_per_day %></li>
-    <li><%= @piece.user.email %></li>
-  </ul>
-
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Delivery Mode</h5>
+      <p class="card-text"><%= " #{@piece.delivery_mode}" %></p>
+    </div>
+  </div>
 
   <% if current_user && current_user.id == @piece.user_id %>
     <p>Transactions : </p>
@@ -23,6 +40,8 @@
 
     <%= link_to "Add another piece", new_piece_path %>
     <%= link_to "See my closet", profile_path %>
+    <%= link_to "Edit my piece", new_piece_path %>
+
     <div>
       <i class="fa-solid fa-trash"></i>
       <%= link_to "Delete",
@@ -32,7 +51,7 @@
         %>
     </div>
   <% else %>
-    <%= link_to "Book this piece", new_piece_transaction_path(@piece) %>
+    <%= link_to "Book this piece", new_piece_transaction_path(@piece), class: "btn btn-primary mt-3" %>
   <% end %>
 
 </div>

@@ -6,13 +6,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <%= simple_form_for(Piece.new) do |f| %>
-        <div class="modal-body">
-          <%= render "pieces/form", f: f %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit 'Create', class: 'btn btn-primary' %>
-        </div>
+      <%= turbo_frame_tag :new_piece do %>
+        <%= simple_form_for(Piece.new) do |f| %>
+          <div class="modal-body">
+            <%= render "pieces/form", f: f %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'Create', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
       <% end %>
 
     </div>
