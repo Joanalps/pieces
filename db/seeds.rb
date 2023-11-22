@@ -46,10 +46,13 @@ user = User.all.sample
 piece_1 = {name: "The little black dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Black", description: "perfect for a chic funeral, sublime without provoc", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 150, user_id: user.id}
 
 user = User.all.sample
-piece_2 = {name: "The flamboyant pink dress", category: "Dress", address: user.address, size: user.top_size, brand: "Dior", color: "Pink", description: "perfect for a very special night out", tag: "Party", delivery_mode: "Delivery", price_per_day: 200, user_id: user.id}
+piece_2 = {name: "The long green dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Green", description: "perfect for celebrations", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 160, user_id: user.id}
+
+user = User.all.sample
+piece_3 = {name: "The flamboyant pink dress", category: "Dress", address: user.address, size: user.top_size, brand: "Dior", color: "Pink", description: "perfect for a very special night out", tag: "Party", delivery_mode: "Delivery", price_per_day: 200, user_id: user.id}
 
 user = User.find_by_first_name("Joana")
-piece_3 = {name: "Long black dress", category: "Dress", address: user.address, size: user.top_size, brand: "Chanel", color: "Black", description: "perfect for a very chic date", tag: "Party", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
+piece_4 = {name: "White suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Chanel", color: "White", description: "perfect for a chic date", tag: "Everyday chic", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
 
 # BRAND = ['Dior', 'Chanel', 'Ralph Lauren', 'Celine', 'Isabel Marant', 'Lacoste', 'Sandro', 'Maje', 'Bash', 'Kooples']
 # SIZE = [34, 36, 38, 40, 42, 44, 46, 48]
@@ -57,9 +60,6 @@ piece_3 = {name: "Long black dress", category: "Dress", address: user.address, s
 # COLOR = ['Black', 'White', 'Beige', 'Grey', 'Blue', 'Red', 'Green', 'Yellow', 'Pink', 'Orange', 'Purple', 'Multicolor']
 # TAG = ['Casual', 'Wedding', 'Cocktail', 'Business', 'Party', 'Everyday chic']
 # DELIVERY_MODE = ['Pick up', 'Delivery']
-
-user = User.find_by_first_name("Joana")
-piece_4 = {name: "Long green dress", category: "Dress", address: user.address, size: user.top_size, brand: "Dior", color: "Green", description: "perfect for a very chic date or a cocktail", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
 
 user = User.find_by_first_name("Camille")
 piece_5 = {name: "Yellow suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Maje", color: "Yellow", description: "bright colors make your day sunnier", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 50, user_id: user.id}
@@ -79,12 +79,16 @@ piece_9 =  {name: "Wedding dress", category: "Dress", address: user.address, siz
 user = User.find_by_first_name("Julie")
 piece_10 =  {name: "Floral dress for a wedding reception", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Multicolor", description: "Tight fit, if you want to stand out", tag: "Wedding", delivery_mode: "Pick up", price_per_day: 200, user_id: user.id}
 
+piece_11 =  {name: "Warmest classiest jumper for ski", category: "Sweater", address: user.address, size: user.top_size, brand: "Celine", color: "Grey", description: "Stay warm, stay classy", tag: "Casual", delivery_mode: "Pick up", price_per_day: 50, user_id: user.id}
+
+piece_12 =  {name: "Shine bright like a lurex", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "Green", description: "For celebrations or everyday", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 50, user_id: user.id}
+
 puts 'Addind images...'
-images = ["https://i.pinimg.com/originals/3f/85/4e/3f854eb4e94b919354cdaf6367037a57.jpg", "https://i.pinimg.com/originals/70/ff/3e/70ff3e00dc350f5cd1e703ae676d0992.jpg", "https://www.kocku.com/cdn/shop/products/L1809_1_720x.jpg?v=1681971238", "https://i.pinimg.com/564x/95/db/9a/95db9a17927a1b6e43742ab9edbb2441.jpg", "https://i.pinimg.com/564x/bd/d8/16/bdd81660d207263d1d0a68ebf6350b54.jpg", "https://i.pinimg.com/564x/7e/ec/03/7eec03f1bf72b1c59255242d997f515b.jpg", "https://images.asos-media.com/products/lacoste-x-polaroid-polo-a-rayures-multicolore/23085875-3?$n_640w$&wid=513&fit=constrain", "https://www.pimkie.fr/dw/image/v2/AAYN_PRD/on/demandware.static/-/Sites-pimkie-master-catalog/default/dwdc0fd435/images/562641_912A09_portrait_HD_1.JPG?sw=592&sh=731", "https://www.whiteonebridal.com/media/catalog/product/d/e/delite_b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=747&width=560&canvas=560:747", "https://i.pinimg.com/originals/08/38/0e/08380e0dac9b750fef119f8f7eedb21e.jpg"
+images = ["https://i.pinimg.com/originals/3f/85/4e/3f854eb4e94b919354cdaf6367037a57.jpg", "https://i.pinimg.com/originals/70/ff/3e/70ff3e00dc350f5cd1e703ae676d0992.jpg", "https://www.kocku.com/cdn/shop/products/L1809_1_720x.jpg?v=1681971238", "https://i.pinimg.com/564x/95/db/9a/95db9a17927a1b6e43742ab9edbb2441.jpg", "https://i.pinimg.com/564x/bd/d8/16/bdd81660d207263d1d0a68ebf6350b54.jpg", "https://i.pinimg.com/564x/7e/ec/03/7eec03f1bf72b1c59255242d997f515b.jpg", "https://images.asos-media.com/products/lacoste-x-polaroid-polo-a-rayures-multicolore/23085875-3?$n_640w$&wid=513&fit=constrain", "https://www.pimkie.fr/dw/image/v2/AAYN_PRD/on/demandware.static/-/Sites-pimkie-master-catalog/default/dwdc0fd435/images/562641_912A09_portrait_HD_1.JPG?sw=592&sh=731", "https://www.whiteonebridal.com/media/catalog/product/d/e/delite_b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=747&width=560&canvas=560:747", "https://i.pinimg.com/originals/08/38/0e/08380e0dac9b750fef119f8f7eedb21e.jpg", "https://i.pinimg.com/736x/9d/12/f9/9d12f90fb7e9535a9921387433b9853f.jpg", "https://prettywire.fr/74039-thickbox_default/tommy-vert-pantalon-lurex.jpg"
 ]
 image_index = 0
 
-[piece_1, piece_2, piece_3, piece_4, piece_5, piece_6, piece_7, piece_8, piece_9, piece_10].each do |attributes|
+[piece_1, piece_2, piece_3, piece_4, piece_5, piece_6, piece_7, piece_8, piece_9, piece_10, piece_11, piece_12].each do |attributes|
   piece = Piece.new(attributes)
   file = URI.open(images[image_index])
   piece.photos.attach(io: file, filename: "#{piece.name}.png", content_type: "image/png")
