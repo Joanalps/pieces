@@ -2,7 +2,6 @@
 </div>
 
 <div>
-
   <h1><%= @piece.name %></h1>
   <div class="card-trip-contain justify-content-center">
     <%= cl_image_tag @piece.photos.first.key %>
@@ -14,54 +13,50 @@
         <h2 class="card-trip-pricing"><%= "#{@piece.price_per_day}€" %></h2>
       </div>
       </div>
-  <div class="container mt-5">
-  <div class="card">
+  <div class="container mt-5 d-flex">
     <div class="card-body">
       <h5 class="card-title">Proud Owner</h5>
       <p class="card-text"><%= " #{@piece.user.first_name}" %></p>
       <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
+      <div class="card-body">
+        <h5 class="card-title">Delivery Mode</h5>
+        <p class="card-text"><%= " #{@piece.delivery_mode}" %></p>
+      </div>
     </div>
-  </div>
 
-  <div class="card mt-3">
-    <div class="card-body">
-      <h5 class="card-title">Delivery Mode</h5>
-      <p class="card-text"><%= " #{@piece.delivery_mode}" %></p>
-    </div>
-  </div>
+  <div>
+    <% if current_user && current_user.id == @piece.user_id %>
+      <p>Transactions : </p>
 
-  <% if current_user && current_user.id == @piece.user_id %>
-    <p>Transactions : </p>
+      <% @piece.transactions.each do |transaction|%>
+        <li><%= transaction.start_date %></li>
+        <li><%= transaction.end_date %></li>
+        <li><%= transaction.total_price%>€</li>
+      <% end %>
 
-    <% @piece.transactions.each do |transaction|%>
-      <li><%= transaction.start_date %></li>
-      <li><%= transaction.end_date %></li>
-      <li><%= transaction.total_price%>€</li>
+      <%= link_to "Add another piece", new_piece_path %>
+      <%= link_to "See my closet", profile_path %>
+      <%= link_to "Edit my piece", new_piece_path %>
+
+      <div>
+        <i class="fa-solid fa-trash"></i>
+        <%= link_to "Delete",
+          piece_path(@piece),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class:"text-black"
+          %>
+      </div>
+    <% else %>
+      <%= link_to "Book this piece", new_piece_transaction_path(@piece), class: "btn btn-primary mt-3" %>
+      <%= simple_form_for([@piece, @transaction]) do |f| %>
+        <%= f.input :start_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } }  %>
+        <%= f.input :end_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } }  %>
+        <%= f.submit %>
+      <% end %>
     <% end %>
-
-    <%= link_to "Add another piece", new_piece_path %>
-    <%= link_to "See my closet", profile_path %>
-    <%= link_to "Edit my piece", new_piece_path %>
-
-    <div>
-      <i class="fa-solid fa-trash"></i>
-      <%= link_to "Delete",
-        piece_path(@piece),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class:"text-black"
-        %>
-    </div>
-  <% else %>
-    <%= link_to "Book this piece", new_piece_transaction_path(@piece), class: "btn btn-primary mt-3" %>
-    <%= simple_form_for([@piece, @transaction]) do |f| %>
-      <%= f.input :start_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } }  %>
-      <%= f.input :end_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } }  %>
-      <%= f.submit %>
-  <% end %>
-<% end %>
-
+  </div>
 </div>
