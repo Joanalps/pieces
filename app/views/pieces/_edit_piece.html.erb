@@ -1,0 +1,15 @@
+<div class="modal fade" id="modalEditPiece<%= @pieces.first.id %>" tabindex="-1" aria-labelledby="modalEditPiece<%= @pieces.first.id %>Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalEditPiece<%= @pieces.first.id %>Label">Your piece to edit 🪄 </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <%= turbo_frame_tag :form_piece, src: edit_piece_path(@pieces.first) do %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

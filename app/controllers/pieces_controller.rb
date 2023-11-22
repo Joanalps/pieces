@@ -1,6 +1,7 @@
 class PiecesController < ApplicationController
   # before_action :set_user, only: %i[new create]
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_piece, only: %i[show edit update destroy]
 
   def index
     @pieces = Piece.all
@@ -21,33 +22,37 @@ class PiecesController < ApplicationController
     end
   end
 
+
   def show
-    @piece = Piece.find(params[:id])
     @transaction = Transaction.new
   end
 
-  def edit
-    @piece = Piece.find(params[:id])
-  end
+
+  def edit; end
 
   def update
-    @piece = Piece.find(params[:id])
     @piece.update(piece_params)
-    redirect_to piece_path(@piece)
+    if @piece.save
+      redirect_to profile_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @piece = Piece.find(params[:id])
     @piece.destroy
     redirect_to pieces_path, status: :see_other
   end
-
 
   private
 
   # def set_user
   #   @user = User.find(params[:user_id])
   # end
+
+  def set_piece
+    @piece = Piece.find(params[:id])
+  end
 
   def piece_params
     params.require(:piece).permit(:name, :category, :address, :size, :brand, :color, :description, :tag, :delivery_mode, :price_per_day, photos: [])
