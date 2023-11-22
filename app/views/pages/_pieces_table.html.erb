@@ -13,17 +13,54 @@
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
+      <td>
+      <button type="button" class="btn btn-outline-warning">
+        <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
+          Edit
+        </div>
+      </button>
+      </td>
+      <td><%= link_to "Delete",
+        profile_path(@piece),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class:"text-black"
+        %></td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Jacob</td>
       <td>Thornton</td>
       <td>@fat</td>
+      <td>
+      <button type="button" class="btn btn-outline-warning">
+        <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
+          Edit
+        </div>
+      </button>
+      </td>
+      <td><%= link_to "Delete",
+        profile_path(@piece),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class:"text-black"
+        %></td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td colspan="2">Larry the Bird</td>
       <td>@twitter</td>
+      <td>
+      <button type="button" class="btn btn-outline-warning">
+        <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
+          Edit
+        </div>
+      </button>
+      <td><%= link_to "Delete",
+        profile_path(@piece),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class:"text-black"
+        %></td>
     </tr>
   </tbody>
 </table>
+
+<%= render 'pieces/edit_piece' %>
