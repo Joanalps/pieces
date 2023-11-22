@@ -38,7 +38,7 @@ class PiecesController < ApplicationController
   def destroy
     @piece = Piece.find(params[:id])
     @piece.destroy
-    redirect_to profile_path, status: :see_other
+    redirect_to pieces_path, status: :see_other
   end
 
 

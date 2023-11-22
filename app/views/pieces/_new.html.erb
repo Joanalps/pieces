@@ -1,0 +1,10 @@
+<%= turbo_frame_tag :new_piece do %>
+  <%= simple_form_for(@piece, html: { data: { turbo_frame: '_top' }}) do |f| %>
+    <div class="modal-body">
+      <%= render "form", f: f %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_piece
-
+  
   def new
     @transaction = Transaction.new
   end
