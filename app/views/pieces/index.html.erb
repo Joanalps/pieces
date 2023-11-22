@@ -5,15 +5,18 @@
     <% @pieces.each do |piece| %>
     <div class="col-md-3 mb-4">
     <div class="card-trip justify-content-center">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+        <%= cl_image_tag piece.photos.first.key %>
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to piece.name, piece_path(piece) %></h2>
             <p><%= link_to piece.description, piece_path(piece) %></p>
           </div>
-          <h2 class="card-trip-pricing"><%=piece.price_per_day%> €</h2>
+          <h2 class="card-trip-pricing"><%= "#{piece.price_per_day}€" %></h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
     </div>
     <% end %>
+  </div>
+</div>
