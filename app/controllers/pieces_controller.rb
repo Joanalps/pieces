@@ -49,7 +49,7 @@ class PiecesController < ApplicationController
   # end
 
   def piece_params
-    params.require(:piece).permit(:name, :category, :address, :size, :brand, :color, :description, :tag, :delivery_mode,      :price_per_day)
+    params.require(:piece).permit(:name, :category, :address, :size, :brand, :color, :description, :tag, :delivery_mode, :price_per_day, photos: [])
   end
 
 end
