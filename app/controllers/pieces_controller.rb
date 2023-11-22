@@ -1,5 +1,6 @@
 class PiecesController < ApplicationController
   # before_action :set_user, only: %i[new create]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @pieces = Piece.all
