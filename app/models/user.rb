@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_one_attached :photo
   # validates :top_size, presence: true
   # validates :top_size, numericality: { only_integer: true }
   # validates :top_size, numericality: { less_than_or_equal_to: 48, greather_than_or_equal_to: 34, even: true }
