@@ -23,6 +23,7 @@ class PiecesController < ApplicationController
 
   def show
     @piece = Piece.find(params[:id])
+    @transaction = Transaction.new
   end
 
   def edit

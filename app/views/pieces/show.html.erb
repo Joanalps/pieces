@@ -19,6 +19,7 @@
     <div class="card-body">
       <h5 class="card-title">Proud Owner</h5>
       <p class="card-text"><%= " #{@piece.user.first_name}" %></p>
+      <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
     </div>
   </div>
 
@@ -52,6 +53,15 @@
     </div>
   <% else %>
     <%= link_to "Book this piece", new_piece_transaction_path(@piece), class: "btn btn-primary mt-3" %>
+    <%= simple_form_for([@piece, @transaction]) do |f| %>
+      <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } }  %>
+      <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } }  %>
+      <%= f.submit %>
   <% end %>
+<% end %>
 
 </div>
