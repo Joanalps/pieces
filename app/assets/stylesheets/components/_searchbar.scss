@@ -1,5 +1,5 @@
 /* Style for the search bar */
-input[type="text"] {
+.search-text-input {
   padding: 8px; /* Adjust the padding to make the input taller */
   font-size: 16px; /* Adjust the font size */
   width: 500px; /* Set a specific width if needed */
@@ -9,7 +9,7 @@ input[type="text"] {
 }
 
 /* Style for the select tag */
-select {
+.search-select-input {
   padding: 8px; /* Adjust the padding to make the select taller */
   font-size: 16px; /* Adjust the font size */
   width: 100px; /* Set a specific width if needed */
@@ -20,7 +20,7 @@ select {
 }
 
 /* Style for the submit button (optional) */
-input[type="submit"] {
+.search-submit-input {
   padding: 8px; /* Adjust the padding */
   font-size: 16px; /* Adjust the font size */
   background-color: #868686; /* Set a background color */
