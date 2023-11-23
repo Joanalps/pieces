@@ -1,0 +1,47 @@
+/* Style for the search bar */
+input[type="text"] {
+  padding: 8px; /* Adjust the padding to make the input taller */
+  font-size: 16px; /* Adjust the font size */
+  width: 500px; /* Set a specific width if needed */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  color:#868686;
+}
+
+/* Style for the select tag */
+select {
+  padding: 8px; /* Adjust the padding to make the select taller */
+  font-size: 16px; /* Adjust the font size */
+  width: 100px; /* Set a specific width if needed */
+  background-color: #fff; /* Set the background color */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  color:#868686;
+}
+
+/* Style for the submit button (optional) */
+input[type="submit"] {
+  padding: 8px; /* Adjust the padding */
+  font-size: 16px; /* Adjust the font size */
+  background-color: #868686; /* Set a background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  width: 100px;
+}
+
+/* Optional: Style for form container */
+form {
+  display: flex; /* Use flexbox for better layout */
+  gap: 10px; /* Add some space between form elements */
+}
+
+.icon-container {
+  text-align: center;
+  margin : 10px;
+}
+
+.icon-container p {
+  margin: 10px 0;
+}

@@ -1,4 +1,15 @@
 class Piece < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_and_filter,
+    against: [:name, :address, :description, :brand, :size, :category, :color, :tag, :delivery_mode],
+    associated_against: {
+      user: [:email, :first_name, :last_name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   belongs_to :user
   has_many :transactions, dependent: :destroy
   has_many_attached :photos
