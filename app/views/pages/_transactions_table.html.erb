@@ -22,7 +22,7 @@
         <% @owner_transactions.each do |transaction|%>
           <tr><th scope='row'><%= transaction.id %></th>
                   <td><%= transaction.id %></td>
-                  <td>20/10-25/10</td>
+                  <td><%= transaction.start_date.day %>/<%= transaction.start_date.month %>-<%= transaction.end_date.day %>/<%= transaction.end_date.month %></td>
                   <td>
                   <% if @user.photo.attached? %>
                     <%= cl_image_tag @user.photo.key, class: "card-trip-user avatar-bordered" %>
@@ -43,8 +43,10 @@
                   <td><%= transaction.piece.price_per_day %></td>
                   <td><%= transaction.total_price %></td>
                   <td><%= transaction.status %></td>
+                  <% if transaction.status == "pending" %>
                   <td><%= link_to "Accept", accept_path(transaction), class: "btn btn-primary mt-3", data: { turbo_method: :patch} %></td>
                   <td><%= link_to "Reject", reject_path(transaction), class: "btn btn-warning mt-3", data: { turbo_method: :patch } %></td>
+                  <% end %>
                 <%# </tr> %>
           <% end %>
       <%# <tr> %>
