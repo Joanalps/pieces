@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get "/profile", to: "pages#profile", as: :profile
   patch "/transactions/:id/accept", to: "transactions#accept", as: :accept
   patch "/transactions/:id/reject", to: "transactions#reject", as: :reject
+  patch "/transactions/:id/edit", to: "transactions#edit", as: :edit
+  delete "/transactions/:id/delete", to: "transactions#destroy", as: :delete
 end
