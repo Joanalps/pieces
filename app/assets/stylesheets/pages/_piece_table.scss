@@ -1,4 +1,21 @@
 .btn-outline-warning:hover {
-  background-color: bisque;
+  background-color: rgb(243, 208, 166);
+  color: whitesmoke
+}
+
+.btn-outline-danger:hover {
+  background-color: rgb(227, 182, 182);
+  color: whitesmoke
+}
+
+.btn a {
+  text-decoration: none;
+}
+
+.text {
+  color: rgba(199, 42, 42, 0.846);
+}
+
+.text:hover {
   color: gray
 }

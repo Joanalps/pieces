@@ -26,11 +26,12 @@
               </div>
             </button>
           </td>
-          <td><%= link_to "Delete",
-              profile_path(@piece),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-              class:"text-black"
-              %>
+          <td>
+              <%= link_to "Delete",
+                  profile_path(@piece),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                  class:"text", class:"btn btn-outline-danger"
+                  %>
           </td>
         </tr>
         <tr>
@@ -47,11 +48,12 @@
               </div>
             </button>
           </td>
-          <td><%= link_to "Delete",
-              profile_path(@piece),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-              class:"text-black"
-              %>
+          <td>
+              <%= link_to "Delete",
+                  profile_path(@piece),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                  class:"text", class:"btn btn-outline-danger"
+                  %>
           </td>
         </tr>
       </tbody>
