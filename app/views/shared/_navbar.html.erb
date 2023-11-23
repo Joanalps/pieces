@@ -18,11 +18,15 @@
             </li>
             <li class="nav-item active">
               <div class="nav-link" data-bs-toggle="modal" data-bs-target="#modalNewPiece" style="cursor: pointer">
-                  Add a new piece to rent
+                  Add a piece to rent
               </div>
             </li>
             <li class="nav-item dropdown">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to '<i class="fas fa-user"></i> My account'.html_safe, profile_path, class: "dropdown-item", escape: false %>
                 <%= link_to '<i class="fas fa-chart-bar"></i> My dashboard'.html_safe, profile_path, class: "dropdown-item", escape: false %>
