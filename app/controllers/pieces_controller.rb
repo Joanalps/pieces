@@ -50,7 +50,7 @@ class PiecesController < ApplicationController
   def update
     @piece.update(piece_params)
     if @piece.save
-      redirect_to profile_path
+      redirect_to piece_path(@piece)
     else
       render :edit, status: :unprocessable_entity
     end

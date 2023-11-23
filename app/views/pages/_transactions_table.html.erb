@@ -21,7 +21,7 @@
     <tbody>
         <% @owner_transactions.each do |transaction|%>
           <tr><th scope='row'><%= transaction.id %></th>
-                  <td><%= transaction.id %></td>
+                  <td><%= transaction.piece.name %></td>
                   <td><%= transaction.start_date.day %>/<%= transaction.start_date.month %>-<%= transaction.end_date.day %>/<%= transaction.end_date.month %></td>
                   <td>
                   <% if @user.photo.attached? %>
@@ -53,7 +53,7 @@
       <% @transactions.each do |transaction|%>
       <%# <% raise %>
           <tr><th scope='row'><%= transaction.id %></th>
-                  <td><%= transaction.id %></td>
+                  <td><%= transaction.piece.name %></td>
                   <td>20/10-25/10</td>
                   <td>
                   <% if transaction.piece.user.photo.attached? %>

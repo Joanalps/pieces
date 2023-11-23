@@ -16,7 +16,7 @@ class TransactionsController < ApplicationController
     end
     @transaction.status = "pending"
     if @transaction.save
-      redirect_to piece_path(@piece) #profile_path
+      redirect_to profile_path
     else
       render :new, status: :unprocessable_entity
     end
