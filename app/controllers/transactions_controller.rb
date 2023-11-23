@@ -48,4 +48,9 @@ class TransactionsController < ApplicationController
     params.require(:transaction).permit(:start_date, :end_date)
   end
 
+  def edit
+  end
+
+  def destroy
+  end
 end
