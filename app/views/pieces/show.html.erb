@@ -15,12 +15,15 @@
       </div>
   <div class="container mt-5 d-flex">
     <div class="card-body">
-      <h5 class="card-title">Proud Owner</h5>
-      <p class="card-text"><%= " #{@piece.user.first_name}" %></p>
+      <%# <h5 class="card-title">Proud Owner</h5> %>
       <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
+      <p class="card-text">Brand: <%= " #{@piece.brand}" %></p>
+      <p class="card-text">Color: <%= " #{@piece.color}" %></p>
+      <p class="card-text">Size: <%= " #{@piece.size}" %></p>
+      <p class="card-text">Proud owner: <%= " #{@piece.user.first_name}" %></p>
       <div class="card-body">
-        <h5 class="card-title">Delivery Mode</h5>
-        <p class="card-text"><%= " #{@piece.delivery_mode}" %></p>
+        <%# <h5 class="card-title">Delivery Mode</h5> %>
+        <p class="card-text">Delivery Mode: <%= " #{@piece.delivery_mode}" %></p>
       </div>
     </div>
 
