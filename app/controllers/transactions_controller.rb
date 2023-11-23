@@ -22,6 +22,19 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def accept
+    @transaction = Transaction.find(params[:transaction_id])
+    @transaction.status = "accept"
+    redirect_to profile_path
+  end
+
+  def reject
+    @transaction = Transaction.find(params[:transaction_id])
+    @transaction.status = "reject"
+    redirect_to profile_path
+  end
+
+
   private
 
   def set_piece
