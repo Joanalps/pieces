@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :transactions, only: %i[new create]
   end
 
-  resources :transactions, only: %i[destroy edit update accept reject]
+  resources :transactions, only: %i[destroy]
   get "/profile", to: "pages#profile", as: :profile
+  patch "/transactions/:id/accept", to: "transactions#accept", as: :accept
+  patch "/transactions/:id/reject", to: "transactions#reject", as: :reject
 end
