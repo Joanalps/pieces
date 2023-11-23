@@ -16,7 +16,11 @@
   <div class="container mt-5 d-flex">
     <div class="card-body">
       <%# <h5 class="card-title">Proud Owner</h5> %>
-      <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
+      <% if @piece.user.photo.attached? %>
+        <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
+      <% else %>
+          <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "avatar-bordered">
+      <% end %>
       <p class="card-text">Brand: <%= " #{@piece.brand}" %></p>
       <p class="card-text">Color: <%= " #{@piece.color}" %></p>
       <p class="card-text">Size: <%= " #{@piece.size}" %></p>

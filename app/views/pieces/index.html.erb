@@ -14,7 +14,11 @@
           </div>
           <h2 class="card-trip-pricing"><%= "#{piece.price_per_day}€" %></h2>
           <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
-          <%= cl_image_tag piece.user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% if piece.user.photo.attached? %>
+            <%= cl_image_tag piece.user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% else %>
+            <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
+          <% end %>
         </div>
       </div>
     </div>
