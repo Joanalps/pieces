@@ -7,5 +7,5 @@
 <%= f.input :description %>
 <%= f.input :tag, as: :select, collection: Piece::TAG, include_blank: false %>
 <%= f.input :delivery_mode, as: :select, collection: Piece::DELIVERY_MODE, include_blank: false %>
-<%= f.input :price_per_day %>
+<%= f.input :price_per_day, input_html: { min: 0 } %>
 <%= f.input :photos, as: :file, input_html: { multiple: true } %>

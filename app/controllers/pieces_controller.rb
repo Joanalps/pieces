@@ -22,11 +22,9 @@ class PiecesController < ApplicationController
     end
   end
 
-
   def show
     @transaction = Transaction.new
   end
-
 
   def edit; end
 
@@ -57,5 +55,4 @@ class PiecesController < ApplicationController
   def piece_params
     params.require(:piece).permit(:name, :category, :address, :size, :brand, :color, :description, :tag, :delivery_mode, :price_per_day, photos: [])
   end
-
 end
