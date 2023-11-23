@@ -1,11 +1,35 @@
 <%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :category, as: :select, collection: Piece::CATEGORY, include_blank: false %>
-<%= f.input :size, as: :select, collection: Piece::SIZE, include_blank: false %>
-<%= f.input :brand, as: :select, collection: Piece::BRAND, include_blank: false %>
-<%= f.input :color, as: :select, collection: Piece::COLOR, include_blank: false  %>
-<%= f.input :description %>
-<%= f.input :tag, as: :select, collection: Piece::TAG, include_blank: false %>
-<%= f.input :delivery_mode, as: :select, collection: Piece::DELIVERY_MODE, include_blank: false %>
+<div class="row row-cols-2">
+    <div class="col">
+      <%= f.input :description %>
+    </div>
+    <div class="col">
+      <%= f.input :tag, as: :select, collection: Piece::TAG, include_blank: false %>
+    </div>
+</div>
+<div class="row row-cols-2">
+    <div class="col">
+      <%= f.input :category, as: :select, collection: Piece::CATEGORY, include_blank: false %>
+    </div>
+    <div class="col">
+      <%= f.input :brand, as: :select, collection: Piece::BRAND, include_blank: false %>
+    </div>
+</div>
+<div class="row row-cols-2">
+    <div class="col">
+      <%= f.input :size, as: :select, collection: Piece::SIZE, include_blank: false %>
+    </div>
+    <div class="col">
+      <%= f.input :color, as: :select, collection: Piece::COLOR, include_blank: false  %>
+    </div>
+</div>
+<div class="row row-cols-2">
+    <div class="col">
+      <%= f.input :delivery_mode, as: :select, collection: Piece::DELIVERY_MODE, include_blank: false %>
+    </div>
+    <div class="col">
+      <%= f.input :address %>
+    </div>
+</div>
 <%= f.input :price_per_day, input_html: { min: 0 } %>
 <%= f.input :photos, as: :file, input_html: { multiple: true } %>
