@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :set_piece
+  before_action :set_piece, only: %i[create new]
 
   def new
     @transaction = Transaction.new
@@ -23,14 +23,17 @@ class TransactionsController < ApplicationController
   end
 
   def accept
-    @transaction = Transaction.find(params[:transaction_id])
-    @transaction.status = "accept"
+    @transaction = Transaction.find(params[:id])
+    @transaction.status = "accepted"
+    @transaction.save
+    # @transaction.update(status: "accept")
     redirect_to profile_path
   end
 
   def reject
-    @transaction = Transaction.find(params[:transaction_id])
-    @transaction.status = "reject"
+    @transaction = Transaction.find(params[:id])
+    @transaction.status = "rejected"
+    @transaction.save
     redirect_to profile_path
   end
 
