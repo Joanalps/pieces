@@ -2,6 +2,8 @@
   <%= form_tag(pieces_path, method: :get) do %>
     <%= text_field_tag :query, params[:query], placeholder: 'Search by brand, size, category, color, ...', class:'search-text-input' %>
     <%= select_tag :size, options_for_select(Piece.pluck(:size).uniq.sort, params[:size]), include_blank: 'Size', class:'search-select-input' %>
+    <%= select_tag :color, options_for_select(Piece.pluck(:color).uniq.sort, params[:color]), include_blank: 'Color', class:'search-select-input' %>
+    <%= select_tag :brand, options_for_select(Piece.pluck(:brand).uniq.sort, params[:brand]), include_blank: 'Brand', class:'search-select-input' %>
     <%= submit_tag 'Search', class:'search-submit-input' %>
   <% end %>
   <div class="d-flex justify-content-between align-items center icon-container">
