@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
     end
   end
 
+
   def accept
     @transaction = Transaction.find(params[:transaction_id])
     @transaction.status = "accept"
