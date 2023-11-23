@@ -1,58 +1,66 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#Piece</th>
-      <th scope="col">Photo</th>
-      <th scope="col">Name</th>
-      <th scope="col">Pending</th>
-      <th scope="col">Rejected</th>
-      <th scope="col">Done</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>img</td>
-      <td>Shoes Louboutin</td>
-      <td>1</td>
-      <td>2</td>
-      <td>10</td>
-      <td>
-        <button type="button" class="btn btn-outline-warning">
-          <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
-            Edit
-          </div>
-        </button>
-      </td>
-      <td><%= link_to "Delete",
-          profile_path(@piece),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class:"text-black"
-          %>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>img</td>
-      <td>Bag Michael Kors</td>
-      <td>0</td>
-      <td>2</td>
-      <td>5</td>
-      <td>
-        <button type="button" class="btn btn-outline-warning">
-          <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
-            Edit
-          </div>
-        </button>
-      </td>
-      <td><%= link_to "Delete",
-          profile_path(@piece),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class:"text-black"
-          %>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
-<%= render 'pieces/edit_piece' %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#Piece</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Pending</th>
+        <th scope="col">Rejected</th>
+        <th scope="col">Done</th>
+      </tr>
+    </thead>
+    <% if !@pieces.empty? %>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>img</td>
+          <td>Shoes Louboutin</td>
+          <td>1</td>
+          <td>2</td>
+          <td>10</td>
+          <td>
+            <button type="button" class="btn btn-outline-warning">
+              <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
+                Edit
+              </div>
+            </button>
+          </td>
+          <td><%= link_to "Delete",
+              profile_path(@piece),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class:"text-black"
+              %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>img</td>
+          <td>Bag Michael Kors</td>
+          <td>0</td>
+          <td>2</td>
+          <td>5</td>
+          <td>
+            <button type="button" class="btn btn-outline-warning">
+              <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
+                Edit
+              </div>
+            </button>
+          </td>
+          <td><%= link_to "Delete",
+              profile_path(@piece),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class:"text-black"
+              %>
+          </td>
+        </tr>
+      </tbody>
+
+      <%= render 'pieces/edit_piece' %>
+    <%else%>
+        <p> You have any piece yet.</p>
+        <div class="nav-link" data-bs-toggle="modal" data-bs-target="#modalNewPiece" style="cursor: pointer">
+          Add a new piece to rent
+        </div>
+    <% end %>
+  </table>
