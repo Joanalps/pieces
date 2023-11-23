@@ -3,8 +3,10 @@
 
 <div>
   <h1><%= @piece.name %></h1>
-  <div class="card-trip-contain justify-content-center">
-    <%= cl_image_tag @piece.photos.first.key %>
+  <div class="d-flex card-trip-contain justify-content-center">
+    <% @piece.photos.each do |photo| %>
+    <%= cl_image_tag photo.key %>
+    <% end %>
       <div class="card-trip-infos text-center mt-3">
         <div>
           <h2><%= @piece.name %></h2>
