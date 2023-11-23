@@ -1,4 +1,5 @@
-
+<div><%= "Here are your transactions for review, #{@user.first_name}"%>
+</div>
 <div>
   <table class="table table-striped">
     <thead>
@@ -8,31 +9,30 @@
         <th scope="col">Booking dates</th>
         <th scope="col">Owner</th>
         <th scope="col">Renter</th>
+        <th scope="col">Days</th>
         <th scope="col">Price/day</th>
+        <th scope="col">Total price</th>
         <th scope="col">Status</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">#12345</th>
-        <td>Coat Dior</td>
-        <td>22/11-24/11</td>
-        <td>Joana</td>
-        <td>Lara</td>
-        <td>100€</td>
-        <td>Accepted 🎉</td>
-      </tr>
-      <tr>
-        <th scope="row">#12322</th>
-        <td>Sweat Burberry</td>
-        <td>20/10-25/10</td>
-        <td>Joana</td>
-        <td>Michelle</td>
-        <td>100€</td>
-        <td>Done ✅</td>
-      </tr>
+        <% @owner_transactions.each do |transaction|%>
+          <tr><th scope='row'><%= transaction.id %></th>
+                  <td><%= transaction.id %></td>
+                  <td>20/10-25/10</td>
+                  <td><%= @user.first_name %></td>
+                  <td><%= transaction.user.first_name %></td>
+                  <td><%= transaction.end_date - transaction.start_date %></td>
+                  <td><%= transaction.piece.price_per_day %></td>
+                  <td><%= transaction.total_price %></td>
+                  <td><%= transaction.status %></td>
+                  <td><%= link_to "Home", pieces_path, class: "btn btn-primary mt-3" %></td>
+                </tr>
+          <% end %>
       <tr>
       </tr>
     </tbody>
+</div>
   </table>
 </div>

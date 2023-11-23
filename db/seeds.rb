@@ -148,7 +148,8 @@ puts "creating transactions"
   end_date = start_date + rand(1..15)
   renting = User.all.sample
   piece = Piece.where.not(user: renting).sample
-  transaction = Transaction.create(user_id: renting.id, piece_id: piece.id, start_date:, end_date:)
+  total_price = (piece.price_per_day * (end_date - start_date))
+  transaction = Transaction.create(user_id: renting.id, piece_id: piece.id, start_date:, end_date:, status: "pending", total_price:)
   puts "Created transaction number #{transaction.id}"
 end
 
