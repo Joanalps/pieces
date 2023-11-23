@@ -1,7 +1,11 @@
 
 
-<div class="container mt-5 pt-5">
+  <div>
+    <%= render 'shared/searchbar' %>
+  </div>
+<div class="container mt-3 pt-5">
   <div class="row">
+    <h6 class="pb-2"> <%= Piece.count %> pieces available </h6>
     <% @pieces.each do |piece| %>
     <div class="col-md-3 mb-4">
     <div class="card-trip justify-content-center">
@@ -11,6 +15,7 @@
           <div>
             <h2><%= link_to piece.name, piece_path(piece) %></h2>
             <p><%= link_to piece.description, piece_path(piece) %></p>
+            <p>Size <strong><%= link_to piece.size, piece_path(piece) %></strong></p>
           </div>
           <h2 class="card-trip-pricing"><%= "#{piece.price_per_day}€" %></h2>
           <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>

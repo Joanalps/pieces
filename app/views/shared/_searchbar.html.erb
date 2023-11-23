@@ -1,0 +1,15 @@
+<div>
+  <%= form_tag(pieces_path, method: :get) do %>
+    <%= text_field_tag :query, params[:query], placeholder: 'Search by brand, size, category, color, ...' %>
+    <%= select_tag :size, options_for_select(Piece.pluck(:size).uniq.sort, params[:size]), include_blank: 'Size' %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+  <div class="d-flex justify-content-between align-items center icon-container">
+    <p><i class="fas fa-tshirt"></i> Casual</p>
+    <p><i class="fas fa-ring"></i> Wedding</p>
+    <p><i class="fas fa-glass-martini-alt"></i> Cocktail</p>
+    <p><i class="fas fa-briefcase"></i></i> Business</p>
+    <p><i class="fas fa-birthday-cake"></i> Party</p>
+    <p><i class="fas fa-star"></i> Everyday Chic</p>
+  </div>
+</div>

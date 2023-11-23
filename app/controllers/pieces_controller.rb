@@ -4,7 +4,15 @@ class PiecesController < ApplicationController
   before_action :set_piece, only: %i[show edit update destroy]
 
   def index
-    @pieces = Piece.all
+    if params[:query].present? && params[:size].present?
+      @pieces = Piece.search_and_filter(params[:query]).search_and_filter(params[:size])
+    elsif params[:query].present?
+      @pieces = Piece.search_and_filter(params[:query])
+    elsif params[:size].present?
+      @pieces = Piece.search_and_filter(params[:query])
+    else
+      @pieces = Piece.all
+    end
     @piece = Piece.new
   end
 
