@@ -1,5 +1,7 @@
-<div><%= "Here are your transactions for review, #{@user.first_name}"%>
+<div>
+<p> <%= "Here are your transactions for review, #{@user.first_name}"%> </p>
 </div>
+
 <div>
   <table class="table table-striped">
     <thead>
@@ -21,8 +23,22 @@
           <tr><th scope='row'><%= transaction.id %></th>
                   <td><%= transaction.id %></td>
                   <td>20/10-25/10</td>
-                  <td><%= @user.first_name %></td>
-                  <td><%= transaction.user.first_name %></td>
+                  <td>
+                  <% if @user.photo.attached? %>
+                    <%= cl_image_tag @user.photo.key, class: "card-trip-user avatar-bordered" %>
+                  <% else %>
+                    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
+                  <% end %>
+                  <%= @user.first_name %>
+                  </td>
+                  <td>
+                  <% if transaction.user.photo.attached? %>
+                    <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                  <% else %>
+                    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
+                  <% end %>
+                  <%= transaction.user.first_name %>
+                  </td>
                   <td><%= (transaction.end_date - transaction.start_date).to_i %></td>
                   <td><%= transaction.piece.price_per_day %></td>
                   <td><%= transaction.total_price %></td>
