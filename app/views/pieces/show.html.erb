@@ -1,72 +1,110 @@
-<div class="banner">
-</div>
-
-
-<div>
-  <h1><%= @piece.name %></h1>
-  <div class="d-flex card-trip-contain justify-content-center">
-    <% @piece.photos.each do |photo| %>
-    <%= cl_image_tag photo.key %>
-    <% end %>
-      <div class="card-trip-infos text-center mt-3">
-        <div>
-          <h2><%= @piece.name %></h2>
-          <p><%= @piece.description %></p>
+<div class="d-flex justify-content-center w-100">
+  <div class="show-container">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h1 class="mb-0"><%= @piece.name %></h1>
+      <p class='mb-0 me-1'>
+        <i class="fa-regular fa-heart"></i>
+        <span class='ms-1 fake-save'>
+          <a href="#" class="save-link">Save</a>
+        </span>
+      </p>
+    </div>
+    <div id="photos" class="d-flex justify-content-center">
+      <div class="row">
+        <div class="col-md-6 ps-0 mt-1">
+          <div class="first-image">
+            <%= cl_image_tag @piece.photos.first.key%>
+          </div>
         </div>
-        <h2 class="card-trip-pricing"><%= "#{@piece.price_per_day}€" %></h2>
-      </div>
-      </div>
-  <div class="container mt-5 d-flex">
-    <div class="card-body">
-      <%# <h5 class="card-title">Proud Owner</h5> %>
-      <% if @piece.user.photo.attached? %>
-        <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
-      <% else %>
-          <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "avatar-bordered">
-      <% end %>
-      <p class="card-text">Brand: <%= " #{@piece.brand}" %></p>
-      <p class="card-text">Color: <%= " #{@piece.color}" %></p>
-      <p class="card-text">Size: <%= " #{@piece.size}" %></p>
-      <p class="card-text">Proud owner: <%= " #{@piece.user.first_name}" %></p>
-      <div class="card-body">
-        <%# <h5 class="card-title">Delivery Mode</h5> %>
-        <p class="card-text">Delivery Mode: <%= " #{@piece.delivery_mode}" %></p>
+        <div class="col-md-6">
+          <div class="row">
+            <% @piece.photos[1..-1].each_slice(2) do |photos_slice| %>
+              <div class="col-md-6">
+                <% photos_slice.each do |photo| %>
+                  <div class="image-container mt-1">
+                    <%= cl_image_tag photo.key %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-
-  <div>
-    <% if current_user && current_user.id == @piece.user_id %>
-      <p>Transactions : </p>
-
-      <% @piece.transactions.each do |transaction|%>
-        <li><%= transaction.start_date %></li>
-        <li><%= transaction.end_date %></li>
-        <li><%= transaction.total_price%>€</li>
-      <% end %>
-
-      <%= link_to "Add another piece", new_piece_path %>
-      <%= link_to "See my closet", profile_path %>
-      <%= link_to "Edit my piece", new_piece_path %>
-
-      <div>
-        <i class="fa-solid fa-trash"></i>
-        <%= link_to "Delete",
-          piece_path(@piece),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class:"text-black"
-          %>
+    <div id="show-card" class="d-flex justify-content-between flex-column">
+      <div class="row">
+        <div class="col-md-6 mt-4">
+          <div id="card-main-infos" class="border-bottom pb-2">
+            <h2><%= @piece.name %></h2>
+            <p><%= @piece.description %></p>
+          </div>
+          <div id="card-infos" class="mt-4 mb-2">
+            <div id="card-infos-avatar" class="d-flex">
+              <% if @piece.user.photo.attached? %>
+                <%= cl_image_tag @piece.user.photo.key, class: "avatar-bordered" %>
+              <% else %>
+                  <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "avatar-bordered">
+              <% end %>
+              <div class="ps-2">
+                <p><%= " #{@piece.user.first_name} #{@piece.user.last_name}" %></p>
+                <p>On PIECES since 2021</p>
+              </div>
+            </div>
+            <div id="card-infos-specifics" class="mt-2">
+              <div id="card-infos-specifics" class="mt-2">
+                <p class="card-text">
+                  <i class="fas fa-tag"></i>  <span class="piece-info"><%= @piece.brand %></span>
+                </p>
+                <p class="card-text">
+                  <i class="fas fa-paint-brush"></i>  <span class="piece-info"><%= @piece.color %></span>
+                </p>
+                <p class="card-text">
+                  <i class="fas fa-arrows-alt"></i>  <span class="piece-info"><%= @piece.size %></span>
+                </p>
+                <p class="card-text">
+                  <i class="fas fa-truck"></i>  <span class="piece-info"><%= @piece.delivery_mode %></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-4">
+          <div class="card-booking">
+            <div id="user-renter">
+              <% if current_user && current_user.id == @piece.user_id %>
+                <% @piece.transactions.each do |transaction|%>
+                  <li><%= transaction.start_date %></li>
+                  <li><%= transaction.end_date %></li>
+                  <li><%= transaction.total_price%>€</li>
+                <% end %>
+              <%= link_to "Add another piece", new_piece_path %>
+            </div>
+            <div id="user-buyer">
+              <% else %>
+              <div class="d-flex justify-content-between flex-column">
+                <div>
+                  <h4><%= "#{@piece.price_per_day}€ per rental day " %></h4>
+                </div>
+                <div>
+                  <%= simple_form_for([@piece, @transaction]) do |f| %>
+                    <div class= "d-flex flex-column">
+                      <div class="form-group">
+                        <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } }, class: "form-control" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } }, class: "form-control" %>
+                      </div>
+                      <div class="form-group d-flex justify-content-end">
+                        <%= f.submit "Rent", class: "btn btn-dark" %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              </div>
+          </div>
+        </div>
       </div>
-    <% else %>
-      <%= link_to "Book this piece", new_piece_transaction_path(@piece), class: "btn btn-primary mt-3" %>
-      <%= simple_form_for([@piece, @transaction]) do |f| %>
-        <%= f.input :start_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } }  %>
-        <%= f.input :end_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } }  %>
-        <%= f.submit %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
