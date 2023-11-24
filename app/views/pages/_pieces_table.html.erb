@@ -15,9 +15,9 @@
         <tr>
           <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= cl_image_tag piece.photos.first.key, class: "thumbnail-bordered" %></div></td>
           <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.name %></div></td>
-          <td headers="th1" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">1</div></td>
-          <td headers="th2" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">10</div></td>
-          <td headers="th3" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">2</div></td>
+          <td headers="th1" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.transactions.where(status: "pending").count %></div></td>
+          <td headers="th2" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.transactions.where(status: "accepted").count %></div></td>
+          <td headers="th3" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.transactions.where(status: "rejected").count %></div></td>
           <td class="edit_delete_container">
             <%# <div class="d-grid gap-2 col-6 mx-auto"> %>
             <div class="edit_delete_buttons">

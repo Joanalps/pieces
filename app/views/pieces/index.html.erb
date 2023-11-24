@@ -1,11 +1,23 @@
+<div id='sticky-search' class="d-flex justify-content-center border-bottom pb-4">
+  <%= form_tag(pieces_path, method: :get) do %>
+    <%= text_field_tag :query, params[:query], placeholder: 'Search by brand, size, category, color, ...', class:'search-text-input' %>
+    <%= select_tag :size, options_for_select(Piece.pluck(:size).uniq.sort, params[:size]), include_blank: 'Size', class:'search-select-input' %>
+    <%= select_tag :color, options_for_select(Piece.pluck(:color).uniq.sort, params[:color]), include_blank: 'Color', class:'search-select-input' %>
+    <%= select_tag :brand, options_for_select(Piece.pluck(:brand).uniq.sort, params[:brand]), include_blank: 'Brand', class:'search-select-input' %>
+    <%= submit_tag 'Search', class:'search-submit-input' %>
+  <% end %>
+</div>
 
 
-  <div>
-    <%= render 'shared/searchbar' %>
-  </div>
-<div class="container mt-3 pt-5">
+<div class="container">
   <div class="row">
-    <h6 class="pb-2"> <%= Piece.count %> pieces available </h6>
+    <div>
+      <%= render 'shared/searchbar' %>
+    </div>
+    <div class="d-flex align-items-center">
+      <h4 class="p-1 font-weight-bold"> <%= @pieces.count %></h4>
+      <h6>  pieces available </h6>
+    </div>
     <% @pieces.each do |piece| %>
     <div class="col-md-3 mb-4">
     <div class="card-trip justify-content-center">

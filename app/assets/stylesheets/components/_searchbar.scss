@@ -23,12 +23,16 @@
 .search-submit-input {
   padding: 8px; /* Adjust the padding */
   font-size: 16px; /* Adjust the font size */
-  background-color: #868686; /* Set a background color */
+  background-color: #818080; /* Set a background color */
   color: #fff; /* Set text color */
   border: none; /* Remove border */
   border-radius: 10px; /* Add border-radius for rounded corners */
   cursor: pointer; /* Add a pointer cursor on hover */
   width: 100px;
+
+    &:hover {
+      background-color:#868686;
+    }
 }
 
 /* Optional: Style for form container */
@@ -42,6 +46,38 @@ form {
   margin : 10px;
 }
 
-.icon-container p {
+.icon-container div {
   margin: 10px 0;
+  border: 1px solid transparent;
+  transition: all 0.1s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    color:black;
+    border-bottom-color: black ;
+    transition: all 0.1s ease-out;
+  }
+}
+
+.active {
+  color:black !important;
+  border-bottom-color: black !important;
+  transition: all 0.1s ease-out !important;
+}
+
+.link_filter {
+  text-decoration: none;
+  color: inherit;
+}
+
+.icon-container {
+  margin: 10px 0;
+}
+
+#sticky-search {
+  background: #F4F4F4;
+  position: sticky;
+  top: 0;
+  padding-top: 20px;
+  z-index: 10;
 }

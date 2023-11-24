@@ -4,7 +4,7 @@
 
 <div>
   <table class="table table-striped">
-    <thead>
+    <thead class = "sticky-top">
       <tr>
         <th scope="col">#Transaction</th>
         <th scope="col">Name</th>
@@ -15,7 +15,9 @@
         <th scope="col">Price/day</th>
         <th scope="col">Total price</th>
         <th scope="col">Status</th>
-        <th scope="col"></th>
+        <th scope="col">Actions</th>
+        <%# <th scope="col">Your</th> %>
+        <%# <th scope="col">actions</th> %>
       </tr>
     </thead>
     <tbody>
@@ -54,14 +56,14 @@
       <%# <% raise %>
           <tr><th scope='row'><%= transaction.id %></th>
                   <td><%= transaction.piece.name %></td>
-                  <td>20/10-25/10</td>
+                  <td><%= transaction.start_date.day %>/<%= transaction.start_date.month %>-<%= transaction.end_date.day %>/<%= transaction.end_date.month %></td>
                   <td>
                   <% if transaction.piece.user.photo.attached? %>
                     <%= cl_image_tag transaction.piece.user.photo.key, class: "card-trip-user avatar-bordered" %>
                   <% else %>
                     <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
                   <% end %>
-                  <%= @user.first_name %>
+                  <%= transaction.piece.user.first_name %>
                   </td>
                   <td>
                   <% if transaction.user.photo.attached? %>
