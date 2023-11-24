@@ -80,7 +80,7 @@ puts "Generating pieces attributes"
 user = User.all.sample
 piece_1 = {name: "The little black dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Black", description: "perfect for a chic funeral, sublime without provoc", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 150, user_id: user.id}
 
-user = User.all.sample
+user = User.find_by_first_name("Camille")
 piece_2 = {name: "The long green dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Green", description: "perfect for celebrations", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 160, user_id: user.id}
 
 user = User.all.sample
@@ -114,20 +114,107 @@ piece_9 =  {name: "Wedding dress", category: "Dress", address: user.address, siz
 user = User.find_by_first_name("Julie")
 piece_10 =  {name: "Floral dress for a wedding reception", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Multicolor", description: "Tight fit, if you want to stand out", tag: "Wedding", delivery_mode: "Pick up", price_per_day: 200, user_id: user.id}
 
+user = User.all.sample
 piece_11 =  {name: "Warmest classiest jumper for ski", category: "Sweater", address: user.address, size: user.top_size, brand: "Celine", color: "Grey", description: "Stay warm, stay classy", tag: "Casual", delivery_mode: "Pick up", price_per_day: 50, user_id: user.id}
 
+user = User.all.sample
 piece_12 =  {name: "Shine bright like a lurex", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "Green", description: "For celebrations or everyday", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 50, user_id: user.id}
 
+user = User.find_by_first_name("Joana")
+piece_13 =  {name: "Classy white pants", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "White", description: "Fitted waist, loose everywhere else", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
+
+user = User.find_by_first_name("Joana")
+piece_14 =  {name: "Classy loose pants", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "Black", description: "Fitted waist, loose everywhere else", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
+
+user = User.find_by_first_name("Joana")
+piece_15 =  {name: "Iconic Trench", category: "Coat", address: user.address, size: user.bottom_size, brand: "Kooples", color: "Beige", description: "Oversize", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 40, user_id: user.id}
+
+user = User.find_by_first_name("Joana")
+piece_16 =  {name: "Winter jumper", category: "Sweater", address: user.address, size: user.bottom_size, brand: "Sandro", color: "Beige", description: "Oversize", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
+
+user = User.find_by_first_name("Clara")
+piece_17 =  {name: "Golden lurex dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Sandro", color: "Multicolor", description: "Amazing to wear", tag: "Party", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
+
+user = User.find_by_first_name("Julie")
+piece_18 =  {name: "Silver & black strass dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Bash", color: "Multicolor", description: "Amazing to wear", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
+
+user = User.find_by_first_name("Amandine")
+piece_19 =  {name: "Hippie chic burgundy dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Bash", color: "Red", description: "Loose and light", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
+
+user = User.find_by_first_name("Chloé")
+piece_20 =  {name: "2-piece floral dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Dior", color: "Multicolor", description: "Very fitted", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 100, user_id: user.id}
+
+user = User.find_by_first_name("Céline")
+piece_21 =  {name: "Pencil dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Dior", color: "Multicolor", description: "Very fitted", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 100, user_id: user.id}
+
+user = User.find_by_first_name("Céline")
+piece_22 =  {name: "Pencil black dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Chanel", color: "Black", description: "Loose fit", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
+
+user = User.all.sample
+piece_23 =  {name: "Plisse dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Kooples", color: "Green", description: "Very fitted", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
+
 puts 'Fetching images...'
-images = ["https://i.pinimg.com/originals/3f/85/4e/3f854eb4e94b919354cdaf6367037a57.jpg", "https://i.pinimg.com/originals/70/ff/3e/70ff3e00dc350f5cd1e703ae676d0992.jpg", "https://www.kocku.com/cdn/shop/products/L1809_1_720x.jpg?v=1681971238", "https://i.pinimg.com/564x/95/db/9a/95db9a17927a1b6e43742ab9edbb2441.jpg", "https://i.pinimg.com/564x/bd/d8/16/bdd81660d207263d1d0a68ebf6350b54.jpg", "https://cdn-img.prettylittlething.com/8/6/2/1/8621fbc09ce48aa113ef6f0b8fdad1230213442a_cmu5225_3.jpg", "https://images.asos-media.com/products/lacoste-x-polaroid-polo-a-rayures-multicolore/23085875-3?$n_640w$&wid=513&fit=constrain", "https://www.pimkie.fr/dw/image/v2/AAYN_PRD/on/demandware.static/-/Sites-pimkie-master-catalog/default/dwdc0fd435/images/562641_912A09_portrait_HD_1.JPG?sw=592&sh=731", "https://www.whiteonebridal.com/media/catalog/product/d/e/delite_b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=747&width=560&canvas=560:747", "https://i.pinimg.com/originals/08/38/0e/08380e0dac9b750fef119f8f7eedb21e.jpg", "https://i.pinimg.com/736x/9d/12/f9/9d12f90fb7e9535a9921387433b9853f.jpg", "https://prettywire.fr/74039-thickbox_default/tommy-vert-pantalon-lurex.jpg"
-]
+piece_1_img_1 = "https://i.pinimg.com/originals/3f/85/4e/3f854eb4e94b919354cdaf6367037a57.jpg"
+piece_1_img_2 = "https://img.freepik.com/photos-gratuite/noir-texture-tissu-croise_1194-6339.jpg?size=626&ext=jpg"
+piece_1_imgs = [piece_1_img_1, piece_1_img_2]
+
+piece_2_imgs = ["https://www.lulus.com/images/product/xlarge/4463370_383032.jpg?w=560&hdpi=1", "https://www.lulus.com/images/product/xlarge/4463330_383032.jpg?w=560&hdpi=1", "https://www.lulus.com/images/product/xlarge/4463390_383032.jpg?w=560&hdpi=1", "https://www.lulus.com/images/product/xlarge/4463410_383032.jpg?w=560&hdpi=1", "https://www.lulus.com/images/product/xlarge/9754981_383032.jpg?w=560&hdpi=1"]
+
+piece_3_imgs = ["https://www.kocku.com/cdn/shop/products/L1809_1_720x.jpg?v=1681971238"]
+
+piece_4_imgs = ["https://i.pinimg.com/564x/95/db/9a/95db9a17927a1b6e43742ab9edbb2441.jpg"]
+
+piece_5_imgs = ["https://i.pinimg.com/564x/bd/d8/16/bdd81660d207263d1d0a68ebf6350b54.jpg"]
+
+piece_6_imgs = ["https://cdn-img.prettylittlething.com/8/6/2/1/8621fbc09ce48aa113ef6f0b8fdad1230213442a_cmu5225_3.jpg"]
+
+piece_7_imgs = ["https://images.asos-media.com/products/lacoste-x-polaroid-polo-a-rayures-multicolore/23085875-3?$n_640w$&wid=513&fit=constrain"]
+
+piece_8_imgs = ["https://www.pimkie.fr/dw/image/v2/AAYN_PRD/on/demandware.static/-/Sites-pimkie-master-catalog/default/dwdc0fd435/images/562641_912A09_portrait_HD_1.JPG?sw=592&sh=731"]
+
+piece_9_imgs = ["https://www.whiteonebridal.com/media/catalog/product/d/e/delite_b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=747&width=560&canvas=560:747"]
+
+piece_10_imgs = ["https://i.pinimg.com/originals/08/38/0e/08380e0dac9b750fef119f8f7eedb21e.jpg"]
+
+piece_11_imgs = ["https://i.pinimg.com/736x/9d/12/f9/9d12f90fb7e9535a9921387433b9853f.jpg"]
+
+piece_12_imgs = ["https://prettywire.fr/74039-thickbox_default/tommy-vert-pantalon-lurex.jpg"]
+
+piece_13_imgs = ["https://prettywire.fr/53184-thickbox_default/milo-blanc-pantalon-a-pinces.jpg", "https://prettywire.fr/53183-thickbox_default/milo-blanc-pantalon-a-pinces.jpg", "https://prettywire.fr/53186-thickbox_default/milo-blanc-pantalon-a-pinces.jpg", "https://prettywire.fr/53187-thickbox_default/milo-blanc-pantalon-a-pinces.jpg", "https://prettywire.fr/53185-thickbox_default/milo-blanc-pantalon-a-pinces.jpg"]
+
+piece_14_imgs = ["https://prettywire.fr/72575-thickbox_default/milo-noir-pantalon-a-pinces.jpg", "https://prettywire.fr/72578-thickbox_default/milo-noir-pantalon-a-pinces.jpg", "https://prettywire.fr/71716-thickbox_default/milo-noir-pantalon-a-pinces.jpg", "https://prettywire.fr/72578-thickbox_default/milo-noir-pantalon-a-pinces.jpg", "https://prettywire.fr/71718-thickbox_default/milo-noir-pantalon-a-pinces.jpg"]
+
+piece_15_imgs = ["https://prettywire.fr/69688-thickbox_default/elisa-kaki-trench-oversize.jpg", "https://prettywire.fr/69701-thickbox_default/elisa-kaki-trench-oversize.jpg", "https://prettywire.fr/69690-thickbox_default/elisa-kaki-trench-oversize.jpg", "https://prettywire.fr/69689-thickbox_default/elisa-kaki-trench-oversize.jpg", "https://prettywire.fr/69695-thickbox_default/elisa-kaki-trench-oversize.jpg"]
+
+piece_16_imgs = ["https://prettywire.fr/73301-thickbox_default/gary-ecru-pull-camionneur.jpg", "https://prettywire.fr/73300-thickbox_default/gary-ecru-pull-camionneur.jpg", "https://prettywire.fr/73299-thickbox_default/gary-ecru-pull-camionneur.jpg", "https://prettywire.fr/73306-thickbox_default/gary-ecru-pull-camionneur.jpg", "https://prettywire.fr/73304-thickbox_default/gary-ecru-pull-camionneur.jpg"]
+
+piece_17_imgs = ["https://prettywire.fr/74202-thickbox_default/izao-doree-robe-lurex.jpg","https://prettywire.fr/74207-thickbox_default/izao-doree-robe-lurex.jpg","https://prettywire.fr/74201-thickbox_default/izao-doree-robe-lurex.jpg","https://prettywire.fr/74208-thickbox_default/izao-doree-robe-lurex.jpg","https://prettywire.fr/74206-thickbox_default/izao-doree-robe-lurex.jpg"]
+
+piece_18_imgs = ["https://prettywire.fr/73989-thickbox_default/strass-argentee-robe-.jpg", "https://prettywire.fr/73985-thickbox_default/strass-argentee-robe-.jpg", "https://prettywire.fr/73991-thickbox_default/strass-argentee-robe-.jpg", "https://prettywire.fr/73991-thickbox_default/strass-argentee-robe-.jpg", "https://prettywire.fr/73998-thickbox_default/strass-argentee-robe-.jpg"]
+
+piece_19_imgs = ["https://images.asos-media.com/products/asos-design-button-through-ruched-waist-pleated-midi-dress-in-metallic-dobby-in-deep-red/200959875-1-deepred?$n_750w$&wid=750&fit=constrain"]
+
+piece_20_imgs = ["https://images.asos-media.com/products/asos-deisgn-puff-sleeve-top-with-rouleau-button-detail-co-ord-in-purple-floral-print/204609205-1-purple?$n_640w$&wid=513&fit=constrain"]
+
+piece_21_imgs = ["https://images.asos-media.com/products/asos-design-pencil-midi-dress-with-ruffle-detail-in-smudge-print/202893918-1-multi?$n_640w$&wid=513&fit=constrain"]
+
+piece_22_imgs = ["https://media.thereformation.com/image/upload/f_auto,q_auto,dpr_2.0/w_400,c_scale//PRD-SFCC/1305735/BLACK/1305735.2.BLACK?_s=RAABAB0"]
+
+piece_23_imgs = ["https://images.asos-media.com/products/asos-design-robe-courte-en-satin-plisse-a-col-montant/201125223-4?$n_640w$&wid=513&fit=constrain"]
+
+images = [piece_1_imgs, piece_2_imgs, piece_3_imgs, piece_4_imgs, piece_5_imgs, piece_6_imgs, piece_7_imgs, piece_8_imgs, piece_9_imgs, piece_10_imgs, piece_11_imgs, piece_12_imgs, piece_13_imgs, piece_14_imgs, piece_15_imgs, piece_16_imgs, piece_17_imgs, piece_18_imgs, piece_19_imgs, piece_20_imgs, piece_21_imgs, piece_22_imgs, piece_23_imgs]
 image_index = 0
 
 puts 'Creating pieces...'
-[piece_1, piece_2, piece_3, piece_4, piece_5, piece_6, piece_7, piece_8, piece_9, piece_10, piece_11, piece_12].each do |attributes|
+[piece_1, piece_2, piece_3, piece_4, piece_5, piece_6, piece_7, piece_8, piece_9, piece_10, piece_11, piece_12, piece_13, piece_14, piece_15, piece_16, piece_17, piece_18, piece_19, piece_20, piece_21, piece_22, piece_23].each do |attributes|
   piece = Piece.new(attributes)
-  file = URI.open(images[image_index])
-  piece.photos.attach(io: file, filename: "#{piece.name}.png", content_type: "image/png")
+  piece_images = images[image_index]
+  piece_image_index = 0
+  piece_images.each do |image|
+    file = URI.open(image)
+    piece.photos.attach(io: file, filename: "#{piece.name}#{piece_image_index}.png", content_type: "image/png")
+    piece_image_index += 1
+    end
   piece.save!
   image_index += 1
   puts "Created #{piece.name}"
@@ -146,7 +233,8 @@ puts "creating transactions"
 40.times do
   start_date = Date.today + rand(0..15)
   end_date = start_date + rand(1..15)
-  renting = User.all.sample
+  # renting = User.where.not(first_name: "Joana").sample
+  renting = User.where.not(first_name: "Joana").sample
   piece = Piece.where.not(user: renting).sample
   total_price = (piece.price_per_day * (end_date - start_date))
   transaction = Transaction.create(user_id: renting.id, piece_id: piece.id, start_date:, end_date:, status: "pending", total_price:)
