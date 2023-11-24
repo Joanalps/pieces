@@ -65,7 +65,7 @@
                   <td style="height: 100px; display: flex; align-items: center;">
                     <div style="display: flex; height: 100%; align-items: center;">
                     <div><% if transaction.piece.user.photo.attached? %>
-                      <%= cl_image_tag transaction.piece.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                      <%= cl_image_tag transaction.piece.user.photo.key, class: "card-trip-user avatar-bordered me-1" %>
                     <% else %>
                       <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
                     <% end %>
@@ -75,7 +75,7 @@
                   </td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center;">
                   <% if transaction.user.photo.attached? %>
-                    <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                    <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered me-1" %>
                   <% else %>
                     <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
                   <% end %>
