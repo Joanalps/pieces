@@ -29,7 +29,7 @@
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.start_date.day %>/<%= transaction.start_date.month %>-<%= transaction.end_date.day %>/<%= transaction.end_date.month %></div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">
                   <% if @user.photo.attached? %>
-                    <%= cl_image_tag @user.photo.key, class: "card-trip-user avatar-bordered" %>
+                    <%= cl_image_tag @user.photo.key, class: "card-trip-user avatar-bordered me-1" %>
                   <% else %>
                     <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
                   <% end %>
@@ -37,7 +37,7 @@
                   </div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">
                   <% if transaction.user.photo.attached? %>
-                    <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                    <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered me-1" %>
                   <% else %>
                     <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
                   <% end %>
