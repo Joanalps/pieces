@@ -5,25 +5,13 @@ class PiecesController < ApplicationController
 
   def index
     @pieces = Piece.all
-    # + filter on size if any
-    @pieces = @pieces.where(size: params[:size]) if params[:size].present?
-
     # + filter on xxx if any
+    @pieces = @pieces.where(size: params[:size]) if params[:size].present?
     @pieces = @pieces.where(color: params[:color]) if params[:color].present?
     @pieces = @pieces.where(brand: params[:brand]) if params[:brand].present?
-
+    @pieces = @pieces.where(tag: params[:tag]) if params[:tag].present?
     # + search on query if any
     @pieces = @pieces.search(params[:query]) if params[:query].present?
-
-    # if params[:query].present? && params[:size].present?
-    #   @pieces = Piece.search_and_filter(params[:query]).search_and_filter(params[:size])
-    # elsif params[:query].present?
-    #   @pieces = Piece.search_and_filter(params[:query])
-    # elsif params[:size].present?
-    #   @pieces = Piece.search_and_filter(params[:query])
-    # else
-    #   @pieces = Piece.all
-    # end
     @piece = Piece.new
   end
 
