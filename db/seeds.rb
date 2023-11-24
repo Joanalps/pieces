@@ -78,16 +78,16 @@ puts "Finished with users!"
 
 puts "Generating pieces attributes"
 user = User.all.sample
-piece_1 = {name: "The little black dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Black", description: "perfect for a chic funeral, sublime without provoc", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 150, user_id: user.id}
+piece_1 = {name: "The little black dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Black", description: "Sublime without provoc", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 150, user_id: user.id}
 
 user = User.find_by_first_name("Camille")
-piece_2 = {name: "The long green dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Green", description: "perfect for celebrations", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 160, user_id: user.id}
+piece_2 = {name: "The long green dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Green", description: "For celebrations", tag: "Cocktail", delivery_mode: "Pick up", price_per_day: 160, user_id: user.id}
 
 user = User.all.sample
-piece_3 = {name: "The flamboyant pink dress", category: "Dress", address: user.address, size: user.top_size, brand: "Dior", color: "Pink", description: "perfect for a very special night out", tag: "Party", delivery_mode: "Delivery", price_per_day: 200, user_id: user.id}
+piece_3 = {name: "The flamboyant pink dress", category: "Dress", address: user.address, size: user.top_size, brand: "Dior", color: "Pink", description: "For a very special night out", tag: "Party", delivery_mode: "Delivery", price_per_day: 200, user_id: user.id}
 
 user = User.find_by_first_name("Joana")
-piece_4 = {name: "White suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Chanel", color: "White", description: "perfect for a chic date", tag: "Everyday chic", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
+piece_4 = {name: "White suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Chanel", color: "White", description: "Perfect for a chic date", tag: "Everyday chic", delivery_mode: "Pick up", price_per_day: 100, user_id: user.id}
 
 # BRAND = ['Dior', 'Chanel', 'Ralph Lauren', 'Celine', 'Isabel Marant', 'Lacoste', 'Sandro', 'Maje', 'Bash', 'Kooples']
 # SIZE = [34, 36, 38, 40, 42, 44, 46, 48]
@@ -97,7 +97,7 @@ piece_4 = {name: "White suit", category: "Pants", address: user.address, size: u
 # DELIVERY_MODE = ['Pick up', 'Delivery']
 
 user = User.find_by_first_name("Camille")
-piece_5 = {name: "Yellow suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Maje", color: "Yellow", description: "bright colors make your day sunnier", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 50, user_id: user.id}
+piece_5 = {name: "Yellow suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Maje", color: "Yellow", description: "Bright colors make your day sunnier", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 50, user_id: user.id}
 
 user = User.all.sample
 piece_6 =  {name: "Oversize green full suit", category: "Pants", address: user.address, size: user.bottom_size, brand: "Ralph Lauren", color: "Green", description: "Bold looks, bold day", tag: "Everyday chic", delivery_mode: "Pick up", price_per_day: 40, user_id: user.id}
@@ -112,7 +112,7 @@ user = User.all.sample
 piece_9 =  {name: "Wedding dress", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "White", description: "Perfect fit for a perfect day", tag: "Wedding", delivery_mode: "Pick up", price_per_day: 300, user_id: user.id}
 
 user = User.find_by_first_name("Julie")
-piece_10 =  {name: "Floral dress for a wedding reception", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Multicolor", description: "Tight fit, if you want to stand out", tag: "Wedding", delivery_mode: "Pick up", price_per_day: 200, user_id: user.id}
+piece_10 =  {name: "Floral dress for a wedding reception", category: "Dress", address: user.address, size: user.top_size, brand: "Ralph Lauren", color: "Multicolor", description: "If you want to stand out", tag: "Wedding", delivery_mode: "Pick up", price_per_day: 200, user_id: user.id}
 
 user = User.all.sample
 piece_11 =  {name: "Warmest classiest jumper for ski", category: "Sweater", address: user.address, size: user.top_size, brand: "Celine", color: "Grey", description: "Stay warm, stay classy", tag: "Casual", delivery_mode: "Pick up", price_per_day: 50, user_id: user.id}
@@ -124,25 +124,25 @@ user = User.find_by_first_name("Joana")
 piece_13 =  {name: "Classy white pants", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "White", description: "Fitted waist, loose everywhere else", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
 
 user = User.find_by_first_name("Joana")
-piece_14 =  {name: "Classy loose pants", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "Black", description: "Fitted waist, loose everywhere else", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
+piece_14 =  {name: "Classy loose pants", category: "Pants", address: user.address, size: user.bottom_size, brand: "Isabel Marant", color: "Black", description: "Fitted waist, else very loose", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
 
 user = User.find_by_first_name("Joana")
 piece_15 =  {name: "Iconic Trench", category: "Coat", address: user.address, size: user.bottom_size, brand: "Kooples", color: "Beige", description: "Oversize", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 40, user_id: user.id}
 
 user = User.find_by_first_name("Joana")
-piece_16 =  {name: "Winter jumper", category: "Sweater", address: user.address, size: user.bottom_size, brand: "Sandro", color: "Beige", description: "Oversize", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
+piece_16 =  {name: "Winter jumper", category: "Sweater", address: user.address, size: user.bottom_size, brand: "Sandro", color: "Beige", description: "Real wool", tag: "Everyday chic", delivery_mode: "Delivery", price_per_day: 20, user_id: user.id}
 
 user = User.find_by_first_name("Clara")
 piece_17 =  {name: "Golden lurex dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Sandro", color: "Multicolor", description: "Amazing to wear", tag: "Party", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
 
 user = User.find_by_first_name("Julie")
-piece_18 =  {name: "Silver & black strass dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Bash", color: "Multicolor", description: "Amazing to wear", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
+piece_18 =  {name: "Silver & black strass dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Bash", color: "Multicolor", description: "Shiny, very shiny", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
 
 user = User.find_by_first_name("Amandine")
 piece_19 =  {name: "Hippie chic burgundy dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Bash", color: "Red", description: "Loose and light", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 30, user_id: user.id}
 
 user = User.find_by_first_name("Chloé")
-piece_20 =  {name: "2-piece floral dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Dior", color: "Multicolor", description: "Very fitted", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 100, user_id: user.id}
+piece_20 =  {name: "2-piece floral dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Dior", color: "Multicolor", description: "Quite fitted", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 100, user_id: user.id}
 
 user = User.find_by_first_name("Céline")
 piece_21 =  {name: "Pencil dress", category: "Dress", address: user.address, size: user.bottom_size, brand: "Dior", color: "Multicolor", description: "Very fitted", tag: "Cocktail", delivery_mode: "Delivery", price_per_day: 100, user_id: user.id}
