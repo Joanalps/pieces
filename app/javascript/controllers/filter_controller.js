@@ -9,8 +9,11 @@ export default class extends Controller {
   }
 
   activate(event) {
+    // console.log(event.currentTarget)
     const params = new URLSearchParams(document.location.search)
     const tagValue = params.get('tag')
+    // params.set('query', event.currentTarget.dataset.tag)
+    // document.location.search = `?${params.toString()}`
 
     this.filterableElementTargets.forEach((filter) => {
       if (filter.dataset.tag === tagValue) {

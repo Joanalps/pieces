@@ -1,29 +1,42 @@
 <div data-controller="filter">
 
   <div class="d-flex justify-content-between align-items-center icon-container mt-4">
-    <div data-filter-target="filterableElement" data-tag='Casual'>
-      <p><i class="fas fa-tshirt"></i></p>
-      <p>Casual</p>
-    </div>
-    <div data-filter-target="filterableElement" data-tag='Wedding'>
-      <p><i class="fas fa-ring"></i></p>
-      <p>Wedding</p>
-    </div>
-    <div data-filter-target="filterableElement" data-tag='Cocktail'>
-      <p><i class="fas fa-glass-martini-alt"></i></p>
-      <p>Cocktail</p>
-    </div>
-    <div data-filter-target="filterableElement" data-tag='Business'>
-      <p><i class="fas fa-briefcase"></i></p>
-      <p>Business</p>
-    </div>
-    <div data-filter-target="filterableElement" data-tag='Party'>
-      <p><i class="fas fa-birthday-cake"></i></p>
-      <p>Party</p>
-    </div>
-    <div data-filter-target="filterableElement" data-tag='Everyday Chic'>
+
+    <%= link_to root_path(tag: 'Casual'), class: 'link_filter' do %>
+      <div data-filter-target="filterableElement" data-tag='Casual'>
+        <p><i class="fas fa-tshirt"></i></p>
+        <p>Casual</p>
+      </div>
+    <% end %>
+    <%= link_to root_path(tag: 'Wedding'), class: 'link_filter' do %>
+      <div data-filter-target="filterableElement" data-tag='Wedding' data-action="click->filter#activate">
+        <p><i class="fas fa-ring"></i></p>
+        <p>Wedding</p>
+      </div>
+    <% end %>
+    <%= link_to root_path(tag: 'Cocktail'), class: 'link_filter' do %>
+      <div data-filter-target="filterableElement" data-tag='Cocktail' data-action="click->filter#activate">
+        <p><i class="fas fa-glass-martini-alt"></i></p>
+        <p>Cocktail</p>
+      </div>
+    <% end %>
+    <%= link_to root_path(tag: 'Business'), class: 'link_filter' do %>
+      <div data-filter-target="filterableElement" data-tag='Business' data-action="click->filter#activate">
+        <p><i class="fas fa-briefcase"></i></p>
+        <p>Business</p>
+      </div>
+    <% end %>
+    <%= link_to root_path(tag: 'Party'), class: 'link_filter' do %>
+      <div data-filter-target="filterableElement" data-tag='Party' data-action="click->filter#activate">
+        <p><i class="fas fa-birthday-cake"></i></p>
+        <p>Party</p>
+      </div>
+    <% end %>
+    <%= link_to root_path(tag: 'Everyday Chic'), class: 'link_filter' do %>
+    <div data-filter-target="filterableElement" data-tag='Everyday Chic' data-action="click->filter#activate">
       <p><i class="fas fa-star"></i></p>
       <p>Everyday Chic</p>
     </div>
+    <% end %>
   </div>
 </div>

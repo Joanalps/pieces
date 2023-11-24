@@ -60,9 +60,14 @@ form {
 }
 
 .active {
-  color:black;
-  border-bottom-color: black ;
-  transition: all 0.1s ease-out;
+  color:black !important;
+  border-bottom-color: black !important;
+  transition: all 0.1s ease-out !important;
+}
+
+.link_filter {
+  text-decoration: none;
+  color: inherit;
 }
 
 .icon-container {
