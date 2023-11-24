@@ -25,9 +25,9 @@
     <tbody>
         <% @owner_transactions.each do |transaction|%>
           <tr><th scope='row' style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.id %></div></th>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.piece.name %></div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "#{transaction.piece.name}", piece_path(transaction.piece) %></div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.start_date.day %>/<%= transaction.start_date.month %>-<%= transaction.end_date.day %>/<%= transaction.end_date.month %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center;">
                   <% if @user.photo.attached? %>
                     <%= cl_image_tag @user.photo.key, class: "card-trip-user avatar-bordered me-1" %>
                   <% else %>
@@ -35,7 +35,7 @@
                   <% end %>
                   <%= @user.first_name %>
                   </div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center;">
                   <% if transaction.user.photo.attached? %>
                     <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered me-1" %>
                   <% else %>
@@ -44,8 +44,8 @@
                   <%= transaction.user.first_name %>
                   </div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= (transaction.end_date - transaction.start_date).to_i %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.piece.price_per_day %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.total_price %></div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.piece.price_per_day %>€</div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.total_price %>€</div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.status %></div></td>
                   <% if transaction.status == "pending" %>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Accept", accept_path(transaction), class: "btn btn-outline-success", data: { turbo_method: :patch} %></div></td>
@@ -60,17 +60,20 @@
       <% @transactions.each do |transaction|%>
       <%# <% raise %>
           <tr><th scope='row' style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.id %></div></th>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.piece.name %></div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "#{transaction.piece.name}", piece_path(transaction.piece) %></div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.start_date.day %>/<%= transaction.start_date.month %>-<%= transaction.end_date.day %>/<%= transaction.end_date.month %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">
-                  <% if transaction.piece.user.photo.attached? %>
-                    <%= cl_image_tag transaction.piece.user.photo.key, class: "card-trip-user avatar-bordered" %>
-                  <% else %>
-                    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
-                  <% end %>
-                  <%= transaction.piece.user.first_name %>
-                  </div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;">
+                  <td style="height: 100px; display: flex; align-items: center;">
+                    <div style="display: flex; height: 100%; align-items: center;">
+                    <div><% if transaction.piece.user.photo.attached? %>
+                      <%= cl_image_tag transaction.piece.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                    <% else %>
+                      <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "card-trip-user avatar-bordered">
+                    <% end %>
+                    </div>
+                    <div class= "justify-content: start"><%= transaction.piece.user.first_name %></div>
+                    </div>
+                  </td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center;">
                   <% if transaction.user.photo.attached? %>
                     <%= cl_image_tag transaction.user.photo.key, class: "card-trip-user avatar-bordered" %>
                   <% else %>
@@ -79,12 +82,12 @@
                   <%= transaction.user.first_name %>
                   </div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= (transaction.end_date - transaction.start_date).to_i %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.piece.price_per_day %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.total_price %></div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.piece.price_per_day %>€</div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.total_price %>€</div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.status %></div></td>
                   <div class="d-grid gap-2 col-6 mx-auto">
-                    <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Edit", edit_path(transaction), class: "btn btn-outline-warning mt-3", data: { turbo_method: :patch} %></div></td>
-                    <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Delete", delete_path(transaction), class: "btn btn-outline-danger mt-3", data: { turbo_method: :patch } %></div></td>
+                    <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Edit", edit_path(transaction), class: "btn btn-outline-warning", data: { turbo_method: :patch} %></div></td>
+                    <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Delete", delete_path(transaction), class: "btn btn-outline-danger", data: { turbo_method: :patch } %></div></td>
                   </div>
                 </tr>
                   <% end %>
