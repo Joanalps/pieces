@@ -46,7 +46,7 @@
                   <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Photo default", class= "avatar-bordered">
               <% end %>
               <div class="ps-2">
-                <p><%= " #{@piece.user.first_name} #{@piece.user.last_name}" %></p>
+                <p class="fw-bold"><%= " #{@piece.user.first_name} #{@piece.user.last_name}" %></p>
                 <p>On PIECES since 2021</p>
               </div>
             </div>
@@ -72,12 +72,7 @@
           <div class="card-booking">
             <div id="user-renter">
               <% if current_user && current_user.id == @piece.user_id %>
-                <% @piece.transactions.each do |transaction|%>
-                  <li><%= transaction.start_date %></li>
-                  <li><%= transaction.end_date %></li>
-                  <li><%= transaction.total_price%>€</li>
-                <% end %>
-              <%= link_to "Add another piece", new_piece_path %>
+              <i class="fas fa-plus"></i> <%= link_to "Add another piece", new_piece_path, class:'text-decoration-none save-link text-center' %>
             </div>
             <div id="user-buyer">
               <% else %>
