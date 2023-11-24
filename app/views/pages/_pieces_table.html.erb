@@ -2,11 +2,11 @@
   <table class="table table-striped">
     <thead class = "sticky-top">
       <tr>
-        <th scope="col">Photo</th>
-        <th scope="col">Name</th>
-        <th scope="col" id="th1">Pending</th>
-        <th scope="col" id="th2">Accepted</th>
-        <th scope="col" id="th3">Rejected</th>
+        <th scope="col" style="text-align: center;">Photo</th>
+        <th scope="col" style="text-align: center;">Name</th>
+        <th scope="col" id="th1" style="text-align: center;">Pending</th>
+        <th scope="col" id="th2" style="text-align: center;">Accepted</th>
+        <th scope="col" id="th3" style="text-align: center;">Rejected</th>
         <th scope="col"> </th>
         <th scope="col"> </th>
       </tr>
@@ -15,13 +15,14 @@
       <tbody>
       <% @pieces.each do |piece|%>
         <tr>
-          <td><%= cl_image_tag piece.photos.first.key, class: "thumbnail-bordered" %></td>
-          <td><%= piece.name %></td>
-          <td headers="th1"><%= piece.transactions.where(status: "pending").count %></td>
-          <td headers="th2"><%= piece.transactions.where(status: "accepted").count %></td>
-          <td headers="th3"><%= piece.transactions.where(status: "rejected").count %></td>
-          <td>
-            <div class="d-grid gap-2 col-6 mx-auto">
+          <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= cl_image_tag piece.photos.first.key, class: "thumbnail-bordered" %></div></td>
+          <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.name %></div></td>
+          <td headers="th1" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.transactions.where(status: "pending").count %></div></td>
+          <td headers="th2" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.transactions.where(status: "accepted").count %></div></td>
+          <td headers="th3" style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= piece.transactions.where(status: "rejected").count %></div></td>
+          <td class="edit_delete_container">
+            <%# <div class="d-grid gap-2 col-6 mx-auto"> %>
+            <div class="edit_delete_buttons">
               <button type="button" class="btn btn-outline-warning">
                 <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
                   Edit
