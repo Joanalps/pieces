@@ -1,12 +1,14 @@
 
   <table class="table table-striped">
-    <thead>
+    <thead class = "sticky-top">
       <tr>
         <th scope="col">Photo</th>
         <th scope="col">Name</th>
         <th scope="col" id="th1">Pending</th>
         <th scope="col" id="th2">Accepted</th>
         <th scope="col" id="th3">Rejected</th>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
       </tr>
     </thead>
     <% if !@pieces.empty? %>
@@ -40,7 +42,7 @@
 
       <%= render 'pieces/edit_piece' %>
     <%else%>
-        <p> You have any piece yet.</p>
+        <p> You don't have any piece yet, add one!</p>
         <div class="nav-link" data-bs-toggle="modal" data-bs-target="#modalNewPiece" style="cursor: pointer">
           Add a new piece to rent
         </div>
