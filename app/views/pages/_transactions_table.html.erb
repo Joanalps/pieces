@@ -44,8 +44,8 @@
                   <td><%= transaction.total_price %></td>
                   <td><%= transaction.status %></td>
                   <% if transaction.status == "pending" %>
-                  <td><%= link_to "Accept", accept_path(transaction), class: "btn btn-primary mt-3", data: { turbo_method: :patch} %></td>
-                  <td><%= link_to "Reject", reject_path(transaction), class: "btn btn-warning mt-3", data: { turbo_method: :patch } %></td>
+                  <td><%= link_to "Accept", accept_path(transaction), class: "btn btn-outline-success mt-3", data: { turbo_method: :patch} %></td>
+                  <td><%= link_to "Reject", reject_path(transaction), class: "btn btn-outline-danger mt-3", data: { turbo_method: :patch } %></td>
                   <% end %>
                 <%# </tr> %>
           <% end %>
@@ -75,8 +75,10 @@
                   <td><%= transaction.piece.price_per_day %></td>
                   <td><%= transaction.total_price %></td>
                   <td><%= transaction.status %></td>
-                  <td><%= link_to "Edit", edit_path(transaction), class: "btn btn-outline-warning mt-3", data: { turbo_method: :patch} %></td>
-                  <td><%= link_to "Delete", delete_path(transaction), class: "btn btn-outline-danger mt-3", data: { turbo_method: :patch } %></td>
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <td><%= link_to "Edit", edit_path(transaction), class: "btn btn-outline-warning mt-3", data: { turbo_method: :patch} %></td>
+                    <td><%= link_to "Delete", delete_path(transaction), class: "btn btn-outline-danger mt-3", data: { turbo_method: :patch } %></td>
+                  </div>
                 </tr>
                   <% end %>
       </tr>
