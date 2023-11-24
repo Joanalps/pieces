@@ -23,16 +23,12 @@
           <td class="edit_delete_container">
             <%# <div class="d-grid gap-2 col-6 mx-auto"> %>
             <div class="edit_delete_buttons">
-              <button type="button" class="btn btn-outline-warning">
-                <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditPiece<%= @pieces.first.id %>" style="cursor: pointer">
-                  Edit
-                </div>
-              </button>
-              <%= link_to "Delete",
-                  profile_path(@piece),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                  class:"text", class:"btn btn-outline-danger"
-                  %>
+              <%= link_to profile_path(@piece), data: { turbo_method: :patch } do %>
+                <i class="fa-solid fa-pen-to-square" style="color: #87898c;"></i>
+              <% end %>
+              <%= link_to profile_path(@piece), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                <i class="fa-solid fa-trash" style="color: #df5d5d;"></i>
+              <% end %>
             </div>
             <td> </td>
           </td>
