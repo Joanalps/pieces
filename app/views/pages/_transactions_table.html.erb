@@ -48,8 +48,8 @@
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.total_price %></div></td>
                   <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= transaction.status %></div></td>
                   <% if transaction.status == "pending" %>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Accept", accept_path(transaction), class: "btn btn-outline-success mt-3", data: { turbo_method: :patch} %></div></td>
-                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Reject", reject_path(transaction), class: "btn btn-outline-danger mt-3", data: { turbo_method: :patch } %></div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Accept", accept_path(transaction), class: "btn btn-outline-success", data: { turbo_method: :patch} %></div></td>
+                  <td style="height: 100px;"><div style="display: flex; height: 100%; align-items: center; justify-content: center;"><%= link_to "Reject", reject_path(transaction), class: "btn btn-outline-danger", data: { turbo_method: :patch } %></div></td>
                   <% else %>
                   <td> </td>
                   <td> </td>
